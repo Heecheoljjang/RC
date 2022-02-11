@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9736513027B63CC2008CD147 /* ParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736512F27B63CC2008CD147 /* ParkViewController.swift */; };
 		9742FFE427AE43E20044AD93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742FFE327AE43E20044AD93 /* AppDelegate.swift */; };
 		9742FFE627AE43E20044AD93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742FFE527AE43E20044AD93 /* SceneDelegate.swift */; };
 		9742FFE827AE43E20044AD93 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742FFE727AE43E20044AD93 /* HomeViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9736512F27B63CC2008CD147 /* ParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkViewController.swift; sourceTree = "<group>"; };
 		9742FFE027AE43E20044AD93 /* SpotifyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9742FFE327AE43E20044AD93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9742FFE527AE43E20044AD93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				9742FFE727AE43E20044AD93 /* HomeViewController.swift */,
 				97B009A427B5778400CB9140 /* SearchViewController.swift */,
 				9742FFE927AE43E20044AD93 /* Main.storyboard */,
+				9736512F27B63CC2008CD147 /* ParkViewController.swift */,
 				9742FFEC27AE43E30044AD93 /* Assets.xcassets */,
 				9742FFEE27AE43E30044AD93 /* LaunchScreen.storyboard */,
 				9742FFF127AE43E30044AD93 /* Info.plist */,
@@ -145,6 +148,7 @@
 				9742FFE427AE43E20044AD93 /* AppDelegate.swift in Sources */,
 				97B009A527B5778400CB9140 /* SearchViewController.swift in Sources */,
 				9742FFE627AE43E20044AD93 /* SceneDelegate.swift in Sources */,
+				9736513027B63CC2008CD147 /* ParkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
