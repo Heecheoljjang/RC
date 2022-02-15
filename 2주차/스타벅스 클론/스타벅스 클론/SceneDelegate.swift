@@ -10,15 +10,44 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    
     var img: UIImageView? //스타벅스 블러 이미지
-
+    
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if let tabBar = self.window?.rootViewController as? UITabBarController {
+            tabBar.tabBar.tintColor = .green
+            tabBar.tabBar.unselectedItemTintColor = .systemGray3
+
+            if let tabBarItems = tabBar.tabBar.items {
+                tabBarItems[0].image = UIImage(named: "house.fill")
+                tabBarItems[1].image = UIImage(named: "creditcard.fill")
+                tabBarItems[2].image = UIImage(named: "cup.and.saucer.fill")
+                tabBarItems[3].image = UIImage(named: "gift.fill")
+                tabBarItems[4].image = UIImage(named: "list.bullet")
+
+                tabBarItems[0].title = "Home"
+                tabBarItems[1].title = "Pay"
+                tabBarItems[2].title = "Order"
+                tabBarItems[3].title = "Gift"
+                tabBarItems[4].title = "Other"
+
+                let image = UIImage(named: "house.fill")?.withRenderingMode(.alwaysOriginal)
+                tabBarItems[0].image = image
+
+                for tabbarItem in tabBarItems {
+                    tabbarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .disabled)
+                    tabbarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.green], for: .selected)
+                }
+
+            }
+            
+        }
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        guard let vc = sb.instantiateViewController(withIdentifier: "event") as? EventViewController else { return }
+//
+//        vc.modalPresentationStyle = .fullScreen
+//        tabBar.present(vc, animated: true, completion: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -60,4 +89,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
+
 
