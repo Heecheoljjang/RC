@@ -44,15 +44,24 @@ class IcedViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "iceOrder" {
+            
+            let lastOrderViewController = segue.destination as! LastOrderViewController
+            
+            lastOrderViewController.tempName = koreanName.text
+            lastOrderViewController.tempPrice = price.text
+        }
+    }
     
     @IBAction func tapHotBtn(_ sender: Any) {
         koreanName.text = "카페 아메리카노"
         englishName.text = "Caffe Americano"
         info.text = "진한 에스프레소와 뜨거운 물을 섞어 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽게 잘 느낄 수 있는 커피"
         hotBtn.backgroundColor = .red
-        hotBtn.titleLabel?.textColor = .white
+        hotBtn.setTitleColor(.white, for: .normal)
         icedBtn.backgroundColor = .white
-        icedBtn.titleLabel?.textColor = .darkGray
+        icedBtn.setTitleColor(.darkGray, for: .normal)
         img.image = UIImage(named: "hot")
         
         
@@ -63,10 +72,10 @@ class IcedViewController: UIViewController {
         englishName.text = "Iced Caffe Americano"
         info.text = "진한 에스프레소에 시원한 정수물과 얼음을 더하여 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"
         hotBtn.backgroundColor = .white
-        hotBtn.titleLabel?.textColor = .darkGray
+        hotBtn.setTitleColor(.darkGray, for: .normal)
         icedBtn.backgroundColor = .link
-        icedBtn.titleLabel?.textColor = .white
+        icedBtn.setTitleColor(.white, for: .normal)
         img.image = UIImage(named: "iced")
     }
-    
+
 }

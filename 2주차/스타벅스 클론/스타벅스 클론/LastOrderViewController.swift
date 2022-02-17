@@ -9,16 +9,11 @@ import UIKit
 
 class LastOrderViewController: UIViewController {
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-}
-
-
-class OrderContainerViewController: UIViewController {
+    @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
     
     @IBOutlet weak var hideView: UIView!
     @IBOutlet weak var hideConstraint: NSLayoutConstraint!
@@ -35,10 +30,19 @@ class OrderContainerViewController: UIViewController {
     @IBOutlet weak var personalCup: UIButton!
     @IBOutlet weak var trashCup: UIButton!
     
+    var count: Int = 1
+    var tempName: String? = ""
+    var tempPrice: String? = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        countLabel.text = String(count)
         
-        //사이즈 뷰 테두리 초기설정(tall선택)
+        minusButton.tintColor = .systemGray5
+        plusButton.tintColor = .darkGray
+        
+        itemLabel.text = tempName
+        priceLabel.text = tempPrice
         
         hideView.isHidden = true
         hideConstraint.constant = 40
@@ -88,6 +92,36 @@ class OrderContainerViewController: UIViewController {
         trashCup.backgroundColor = .white
         trashCup.setTitleColor(.darkGray, for: .normal)
         
+        
+    }
+
+    @IBAction func minusBtn(_ sender: Any) {
+        if count > 2 {
+            count -= 1
+            countLabel.text = String(count)
+            if let priceText = priceLabel.text, var value = Int(priceText) {
+                value -= Int(tempPrice!)!
+                priceLabel.text = String(value)
+            }
+        } else if count == 2 {
+            count -= 1
+            countLabel.text = String(count)
+            if let priceText = priceLabel.text, var value = Int(priceText) {
+                value -= Int(tempPrice!)!
+                priceLabel.text = String(value)
+            }
+            minusButton.tintColor = .systemGray5
+        }
+        
+    }
+    @IBAction func plusBtn(_ sender: Any) {
+        count += 1
+        countLabel.text = String(count)
+        if let priceText = priceLabel.text, var value = Int(priceText) {
+            value += Int(tempPrice!)!
+            priceLabel.text = String(value)
+        }
+        minusButton.tintColor = .darkGray
     }
     
     @IBAction func tapBtn(_ sender: Any) {
@@ -114,6 +148,11 @@ class OrderContainerViewController: UIViewController {
         tallLabel.textColor = .black
         grandeLabel.textColor = .darkGray
         ventiLabel.textColor = .darkGray
+        
+        guard let price = tempPrice {
+            
+
+        
     }
     @IBAction func tapGrandeView(_ sender: Any) {
         tallImg.image = UIImage(named: "cup")
@@ -186,5 +225,4 @@ class OrderContainerViewController: UIViewController {
         glassCup.backgroundColor = .white
         glassCup.setTitleColor(.darkGray, for: .normal)
     }
-    
 }

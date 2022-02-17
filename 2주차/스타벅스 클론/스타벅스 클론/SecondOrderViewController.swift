@@ -13,7 +13,7 @@ class SecondOrderViewController: UIViewController {
     
     @IBOutlet weak var iced: UILabel!
     @IBOutlet weak var icedEnglish: UILabel!
-    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var icedPrice: UILabel!
     @IBOutlet weak var icedImg: UIImageView!
     @IBOutlet weak var hotImg: UIImageView!
     @IBOutlet weak var hotEnglish: UILabel!
@@ -40,7 +40,7 @@ class SecondOrderViewController: UIViewController {
 
             guard let koreanText = iced.text else {return}
             guard let englishText = icedEnglish.text else { return }
-            guard let priceText = price.text else { return }
+            guard let priceText = icedPrice.text else { return }
             guard let tempImg = icedImg.image else {return}
             
             icedViewController.tempKorean = koreanText
@@ -54,7 +54,7 @@ class SecondOrderViewController: UIViewController {
 
             guard let koreanText = hot.text else {return}
             guard let englishText = hotEnglish.text else { return }
-            guard let priceText = price.text else { return }
+            guard let priceText = icedPrice.text else { return }
             guard let tempImg = hotImg.image else {return}
             
             
