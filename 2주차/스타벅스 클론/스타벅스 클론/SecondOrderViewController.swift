@@ -19,9 +19,15 @@ class SecondOrderViewController: UIViewController {
     @IBOutlet weak var hotEnglish: UILabel!
     
 
+    @IBOutlet weak var jasmineImg: UIImageView!
+    @IBOutlet weak var strawberryImg: UIImageView!
+    @IBOutlet weak var strawberryPrice: UILabel!
+    @IBOutlet weak var strawberryEnglish: UILabel!
     @IBOutlet weak var strawberry: UILabel!
     @IBOutlet weak var jasmine: UILabel!
     @IBOutlet weak var hot: UILabel!
+    @IBOutlet weak var jasmineEnglish: UILabel!
+    @IBOutlet weak var jasminePrice: UILabel!
     
     var secondLabel = ""
     
@@ -32,6 +38,10 @@ class SecondOrderViewController: UIViewController {
         icedImg.layer.cornerRadius = icedImg.frame.height / 2
         
         hotImg.layer.cornerRadius = hotImg.frame.height / 2
+        
+        strawberryImg.layer.cornerRadius = strawberryImg.frame.height / 2
+        
+        jasmineImg.layer.cornerRadius = jasmineImg.frame.height / 2
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,8 +72,32 @@ class SecondOrderViewController: UIViewController {
             hotViewController.tempEnglish = englishText
             hotViewController.tempPrice = priceText
             hotViewController.tempImg = tempImg
+
+        } else if segue.identifier == "springStrawberry" {
+            let onlyIcedViewController = segue.destination as! OnlyIcedViewController
             
+            guard let koreanText = strawberry.text else {return}
+            guard let englishText = strawberryEnglish.text else { return }
+            guard let priceText = strawberryPrice.text else { return }
+            guard let tempImg = strawberryImg.image else {return}
             
+            onlyIcedViewController.tempKorean = koreanText
+            onlyIcedViewController.tempEnglish = englishText
+            onlyIcedViewController.tempPrice = priceText
+            onlyIcedViewController.tempImg = tempImg
+            
+        } else if segue.identifier == "jasmine" {
+            let onlyIcedViewController = segue.destination as! OnlyIcedViewController
+            
+            guard let koreanText = jasmine.text else {return}
+            guard let englishText = jasmineEnglish.text else { return }
+            guard let priceText = jasminePrice.text else { return }
+            guard let tempImg = jasmineImg.image else {return}
+            
+            onlyIcedViewController.tempKorean = koreanText
+            onlyIcedViewController.tempEnglish = englishText
+            onlyIcedViewController.tempPrice = priceText
+            onlyIcedViewController.tempImg = tempImg
         }
     }
     

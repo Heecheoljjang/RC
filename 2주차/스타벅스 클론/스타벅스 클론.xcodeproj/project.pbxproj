@@ -11,12 +11,14 @@
 		9706324D27B90608005D397F /* SecondOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9706324C27B90608005D397F /* SecondOrderViewController.swift */; };
 		9706324F27B94454005D397F /* IcedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9706324E27B94454005D397F /* IcedViewController.swift */; };
 		9706325127B96126005D397F /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9706325027B96126005D397F /* EventViewController.swift */; };
-		9706325327B96996005D397F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9706325227B96996005D397F /* TabBarController.swift */; };
 		972B2CB027BBFD0E00F8F4F0 /* LastOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972B2CAF27BBFD0E00F8F4F0 /* LastOrderViewController.swift */; };
 		972B2CB227BC285600F8F4F0 /* PersonalOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972B2CB127BC285600F8F4F0 /* PersonalOptionViewController.swift */; };
 		97385A3327BB71E900CAC8EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97385A3227BB71E900CAC8EE /* HomeViewController.swift */; };
 		97385A3527BBA5A300CAC8EE /* HotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97385A3427BBA5A300CAC8EE /* HotViewController.swift */; };
 		974B9AAB27BCDC80002A6428 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974B9AAA27BCDC80002A6428 /* PayViewController.swift */; };
+		977BB65827BFB808000CF366 /* OnlyIcedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977BB65727BFB808000CF366 /* OnlyIcedViewController.swift */; };
+		9790053027BE9DD90028AA69 /* completeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790052F27BE9DD90028AA69 /* completeViewController.swift */; };
+		979B9A1527BFE2B20026B850 /* notificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979B9A1427BFE2B20026B850 /* notificationViewController.swift */; };
 		97C1214727B776DE00B71124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C1214627B776DE00B71124 /* AppDelegate.swift */; };
 		97C1214927B776DE00B71124 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C1214827B776DE00B71124 /* SceneDelegate.swift */; };
 		97C1214E27B776DE00B71124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C1214C27B776DE00B71124 /* Main.storyboard */; };
@@ -29,12 +31,14 @@
 		9706324C27B90608005D397F /* SecondOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOrderViewController.swift; sourceTree = "<group>"; };
 		9706324E27B94454005D397F /* IcedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcedViewController.swift; sourceTree = "<group>"; };
 		9706325027B96126005D397F /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
-		9706325227B96996005D397F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		972B2CAF27BBFD0E00F8F4F0 /* LastOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOrderViewController.swift; sourceTree = "<group>"; };
 		972B2CB127BC285600F8F4F0 /* PersonalOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalOptionViewController.swift; sourceTree = "<group>"; };
 		97385A3227BB71E900CAC8EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		97385A3427BBA5A300CAC8EE /* HotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewController.swift; sourceTree = "<group>"; };
 		974B9AAA27BCDC80002A6428 /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		977BB65727BFB808000CF366 /* OnlyIcedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyIcedViewController.swift; sourceTree = "<group>"; };
+		9790052F27BE9DD90028AA69 /* completeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = completeViewController.swift; sourceTree = "<group>"; };
+		979B9A1427BFE2B20026B850 /* notificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationViewController.swift; sourceTree = "<group>"; };
 		97C1214327B776DE00B71124 /* 스타벅스 클론.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "스타벅스 클론.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C1214627B776DE00B71124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C1214827B776DE00B71124 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,13 +81,15 @@
 				97C1214627B776DE00B71124 /* AppDelegate.swift */,
 				97C1214827B776DE00B71124 /* SceneDelegate.swift */,
 				97C1214C27B776DE00B71124 /* Main.storyboard */,
+				9790052F27BE9DD90028AA69 /* completeViewController.swift */,
+				97385A3227BB71E900CAC8EE /* HomeViewController.swift */,
+				979B9A1427BFE2B20026B850 /* notificationViewController.swift */,
 				974B9AAA27BCDC80002A6428 /* PayViewController.swift */,
 				972B2CB127BC285600F8F4F0 /* PersonalOptionViewController.swift */,
 				972B2CAF27BBFD0E00F8F4F0 /* LastOrderViewController.swift */,
+				977BB65727BFB808000CF366 /* OnlyIcedViewController.swift */,
 				97385A3427BBA5A300CAC8EE /* HotViewController.swift */,
 				9706324E27B94454005D397F /* IcedViewController.swift */,
-				97385A3227BB71E900CAC8EE /* HomeViewController.swift */,
-				9706325227B96996005D397F /* TabBarController.swift */,
 				9706325027B96126005D397F /* EventViewController.swift */,
 				9706324C27B90608005D397F /* SecondOrderViewController.swift */,
 				9706324A27B90464005D397F /* OrderViewController.swift */,
@@ -167,16 +173,18 @@
 			files = (
 				97385A3527BBA5A300CAC8EE /* HotViewController.swift in Sources */,
 				972B2CB027BBFD0E00F8F4F0 /* LastOrderViewController.swift in Sources */,
-				9706325327B96996005D397F /* TabBarController.swift in Sources */,
 				9706324F27B94454005D397F /* IcedViewController.swift in Sources */,
 				972B2CB227BC285600F8F4F0 /* PersonalOptionViewController.swift in Sources */,
 				9706325127B96126005D397F /* EventViewController.swift in Sources */,
 				97C1214727B776DE00B71124 /* AppDelegate.swift in Sources */,
+				977BB65827BFB808000CF366 /* OnlyIcedViewController.swift in Sources */,
 				974B9AAB27BCDC80002A6428 /* PayViewController.swift in Sources */,
 				97385A3327BB71E900CAC8EE /* HomeViewController.swift in Sources */,
 				97C1214927B776DE00B71124 /* SceneDelegate.swift in Sources */,
+				979B9A1527BFE2B20026B850 /* notificationViewController.swift in Sources */,
 				9706324B27B90464005D397F /* OrderViewController.swift in Sources */,
 				9706324D27B90608005D397F /* SecondOrderViewController.swift in Sources */,
+				9790053027BE9DD90028AA69 /* completeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

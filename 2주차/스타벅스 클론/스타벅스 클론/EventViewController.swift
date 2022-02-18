@@ -10,9 +10,21 @@ import UIKit
 class EventViewController: UIViewController {
 
     var hasBeenDisplayed: Bool = false
+    @IBOutlet weak var leftBtn: UIButton!
+    @IBOutlet weak var rightBtn: UIButton!
+    @IBOutlet weak var left: UIView!
+    @IBOutlet weak var right: UIView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        left.layer.cornerRadius = left.frame.height / 2
+        right.layer.cornerRadius = left.frame.height / 2
+        
+        left.layer.borderWidth = 1
+        left.layer.borderColor = UIColor.systemGray5.cgColor
 
     }
     

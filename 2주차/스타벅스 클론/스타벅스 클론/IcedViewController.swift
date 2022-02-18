@@ -17,6 +17,7 @@ class IcedViewController: UIViewController {
     @IBOutlet weak var hotBtn: UIButton!
     @IBOutlet weak var icedBtn: UIButton!
     @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var orderButton: UIButton!
     
     var tempKorean: String = ""
     var tempEnglish: String = ""
@@ -25,6 +26,8 @@ class IcedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        orderButton.layer.cornerRadius = orderButton.frame.height / 2
         
         buttonView.layer.cornerRadius = buttonView.frame.height / 2
         hotBtn.layer.cornerRadius = hotBtn.frame.height / 2
@@ -51,6 +54,8 @@ class IcedViewController: UIViewController {
             
             lastOrderViewController.tempName = koreanName.text
             lastOrderViewController.tempPrice = price.text
+            lastOrderViewController.tempImg = img.image
+            
         }
     }
     

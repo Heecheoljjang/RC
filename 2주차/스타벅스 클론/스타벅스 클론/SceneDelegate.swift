@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -15,16 +16,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        if let tabBar = self.window?.rootViewController as? UITabBarController {
-            tabBar.tabBar.tintColor = .green
+            if let tabBar = self.window?.rootViewController as? UITabBarController {
+            tabBar.tabBar.tintColor = UIColor(named: "starbucksLightGreen")
             tabBar.tabBar.unselectedItemTintColor = .systemGray3
 
             if let tabBarItems = tabBar.tabBar.items {
-                tabBarItems[0].image = UIImage(named: "house.fill")
-                tabBarItems[1].image = UIImage(named: "creditcard.fill")
-                tabBarItems[2].image = UIImage(named: "cup.and.saucer.fill")
-                tabBarItems[3].image = UIImage(named: "gift.fill")
-                tabBarItems[4].image = UIImage(named: "list.bullet")
+                tabBarItems[0].image = UIImage(systemName: "house.fill") //직접 넣은 이미지아니면 named: 가 아닌 systemName: 의 형식을 가져야함.
+                tabBarItems[1].image = UIImage(systemName: "creditcard.fill")
+                tabBarItems[2].image = UIImage(systemName: "cup.and.saucer.fill")
+                tabBarItems[3].image = UIImage(systemName: "gift.fill")
+                tabBarItems[4].image = UIImage(systemName: "list.bullet")
 
                 tabBarItems[0].title = "Home"
                 tabBarItems[1].title = "Pay"
@@ -32,22 +33,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 tabBarItems[3].title = "Gift"
                 tabBarItems[4].title = "Other"
 
-                let image = UIImage(named: "house.fill")?.withRenderingMode(.alwaysOriginal)
-                tabBarItems[0].image = image
-
                 for tabbarItem in tabBarItems {
                     tabbarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .disabled)
-                    tabbarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.green], for: .selected)
+                    tabbarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "starbucksLightGreen")], for: .selected)
                 }
-
             }
-            
         }
-//        let sb = UIStoryboard(name: "Main", bundle: nil)
-//        guard let vc = sb.instantiateViewController(withIdentifier: "event") as? EventViewController else { return }
-//
-//        vc.modalPresentationStyle = .fullScreen
-//        tabBar.present(vc, animated: true, completion: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -79,6 +70,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        
+        
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -86,8 +79,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
 

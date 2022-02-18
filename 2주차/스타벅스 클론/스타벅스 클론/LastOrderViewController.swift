@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import UserNotifications
 
 class LastOrderViewController: UIViewController {
-
+    
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -30,19 +31,48 @@ class LastOrderViewController: UIViewController {
     @IBOutlet weak var personalCup: UIButton!
     @IBOutlet weak var trashCup: UIButton!
     
+    @IBOutlet weak var pickBtn: UIButton!
+    @IBOutlet weak var orderBtn: UIButton!
+    
     var count: Int = 1
     var tempName: String? = ""
     var tempPrice: String? = ""
+    var intPrice: Int = 0
+    var changePrice: Int = 0
+    var tempImg: UIImage?
+    
+    var tallViewSelected: Bool?
+    var grandeViewSelected: Bool?
+    var ventiViewSelected: Bool?
+    
+    var glassSelected: Bool?
+    var personalSelected: Bool?
+    var trashSelected: Bool?
+    
+    let notificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pickBtn.layer.cornerRadius = pickBtn.frame.height / 2
+        orderBtn.layer.cornerRadius = orderBtn.frame.height / 2
+        
+        pickBtn.layer.borderWidth = 1
+        pickBtn.layer.borderColor = UIColor(named: "starbucksLightGreen")?.cgColor
+        
+        
         countLabel.text = String(count)
         
         minusButton.tintColor = .systemGray5
         plusButton.tintColor = .darkGray
         
+        if let temp = tempPrice, let value = Int(temp) {
+            intPrice = value
+            changePrice = value
+        }
+            
         itemLabel.text = tempName
-        priceLabel.text = tempPrice
+        priceLabel.text = String(intPrice)
         
         hideView.isHidden = true
         hideConstraint.constant = 40
@@ -94,20 +124,45 @@ class LastOrderViewController: UIViewController {
         
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "complete" {
+            
+            let completeViewController = segue.destination as! completeViewController
+            
+            completeViewController.tempMenu = tempName
+            if tallViewSelected == true {
+                completeViewController.tempSize = "Tall"
+            } else if grandeViewSelected == true {
+                completeViewController.tempSize = "Grande"
+            } else {
+                completeViewController.tempSize = "Venti"
+            }
+            completeViewController.tempImg = tempImg
+            if glassSelected == true {
+                completeViewController.tempCup = glassCup.title(for: .normal)
+            } else if personalSelected == true {
+                completeViewController.tempCup = personalCup.title(for: .normal)
+            } else {
+                completeViewController.tempCup = trashCup.title(for: .normal)
+            }
+            completeViewController.tempPrice = priceLabel.text
+        }
+    }
 
     @IBAction func minusBtn(_ sender: Any) {
         if count > 2 {
             count -= 1
             countLabel.text = String(count)
             if let priceText = priceLabel.text, var value = Int(priceText) {
-                value -= Int(tempPrice!)!
+                value -= changePrice
                 priceLabel.text = String(value)
             }
         } else if count == 2 {
             count -= 1
             countLabel.text = String(count)
             if let priceText = priceLabel.text, var value = Int(priceText) {
-                value -= Int(tempPrice!)!
+                value -= changePrice
                 priceLabel.text = String(value)
             }
             minusButton.tintColor = .systemGray5
@@ -118,7 +173,7 @@ class LastOrderViewController: UIViewController {
         count += 1
         countLabel.text = String(count)
         if let priceText = priceLabel.text, var value = Int(priceText) {
-            value += Int(tempPrice!)!
+            value += changePrice
             priceLabel.text = String(value)
         }
         minusButton.tintColor = .darkGray
@@ -129,6 +184,7 @@ class LastOrderViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "PersonalOption") as! PersonalOptionViewController
         vc.modalPresentationStyle = .automatic
         self.present(vc, animated: true, completion: nil)
+        
     }
     
     @IBAction func tapTallView(_ sender: Any) {
@@ -148,11 +204,13 @@ class LastOrderViewController: UIViewController {
         tallLabel.textColor = .black
         grandeLabel.textColor = .darkGray
         ventiLabel.textColor = .darkGray
+                
+        changePrice = intPrice
+        priceLabel.text = String(count * intPrice)
         
-        guard let price = tempPrice {
-            
-
-        
+        tallViewSelected = true
+        grandeViewSelected = false
+        ventiViewSelected = false
     }
     @IBAction func tapGrandeView(_ sender: Any) {
         tallImg.image = UIImage(named: "cup")
@@ -171,6 +229,13 @@ class LastOrderViewController: UIViewController {
         grandeLabel.textColor = .black
         tallLabel.textColor = .darkGray
         ventiLabel.textColor = .darkGray
+        
+        changePrice = intPrice + 500
+        priceLabel.text = String(count * changePrice)
+        
+        tallViewSelected = false
+        grandeViewSelected = true
+        ventiViewSelected = false
     }
     @IBAction func tapVentiView(_ sender: Any) {
         tallImg.image = UIImage(named: "cup")
@@ -189,6 +254,13 @@ class LastOrderViewController: UIViewController {
         ventiLabel.textColor = .black
         tallLabel.textColor = .darkGray
         grandeLabel.textColor = .darkGray
+        
+        changePrice = intPrice + 1000
+        priceLabel.text = String(count * changePrice)
+        
+        tallViewSelected = false
+        grandeViewSelected = false
+        ventiViewSelected = true
     }
     //컵 선택 액션
     @IBAction func tapGlass(_ sender: Any) {
@@ -202,6 +274,10 @@ class LastOrderViewController: UIViewController {
         trashCup.backgroundColor = .white
         trashCup.setTitleColor(.darkGray, for: .normal)
         
+        glassSelected = true
+        personalSelected = false
+        trashSelected = false
+        
     }
     @IBAction func tapPersonal(_ sender: Any) {
         hideView.isHidden = false
@@ -213,6 +289,10 @@ class LastOrderViewController: UIViewController {
         glassCup.setTitleColor(.darkGray, for: .normal)
         trashCup.backgroundColor = .white
         trashCup.setTitleColor(.darkGray, for: .normal)
+        
+        glassSelected = false
+        personalSelected = true
+        trashSelected = false
     }
     @IBAction func tapTrash(_ sender: Any) {
         hideView.isHidden = true
@@ -224,5 +304,21 @@ class LastOrderViewController: UIViewController {
         personalCup.setTitleColor(.darkGray, for: .normal)
         glassCup.backgroundColor = .white
         glassCup.setTitleColor(.darkGray, for: .normal)
+        
+        glassSelected = false
+        personalSelected = false
+        trashSelected = true
     }
+    
+    @IBAction func tapOrderButton(_ sender: Any) {
+        let content = UNMutableNotificationContent()
+        content.title = "주문이 정상적으로 접수되었습니다."
+        content.body = ":)"
+        
+        let TimeIntervalTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: TimeIntervalTrigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
 }

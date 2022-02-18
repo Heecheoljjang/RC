@@ -17,6 +17,7 @@ class HotViewController: UIViewController {
     @IBOutlet weak var hotBtn: UIButton!
     @IBOutlet weak var icedBtn: UIButton!
     @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var orderButton: UIButton!
     
     var tempKorean: String = ""
     var tempEnglish: String = ""
@@ -25,6 +26,8 @@ class HotViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        orderButton.layer.cornerRadius = orderButton.frame.height / 2
         
         buttonView.layer.cornerRadius = buttonView.frame.height / 2
         hotBtn.layer.cornerRadius = hotBtn.frame.height / 2
@@ -43,6 +46,17 @@ class HotViewController: UIViewController {
         
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "hotOrder" {
+            
+            let lastOrderViewController = segue.destination as! LastOrderViewController
+            
+            lastOrderViewController.tempName = koreanName.text
+            lastOrderViewController.tempPrice = price.text
+            lastOrderViewController.tempImg = img.image
+        }
+    }
+    
     @IBAction func tapHotBtn(_ sender: Any) {
         koreanName.text = "카페 아메리카노"
         englishName.text = "Caffe Americano"
