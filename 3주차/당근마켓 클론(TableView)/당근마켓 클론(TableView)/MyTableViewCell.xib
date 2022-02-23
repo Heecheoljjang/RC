@@ -37,6 +37,10 @@
                     <constraint firstItem="8tg-ab-g5q" firstAttribute="centerY" secondItem="9ul-LQ-rNF" secondAttribute="centerY" id="qrd-EH-oKY"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="settingImg" destination="8tg-ab-g5q" id="wYe-3z-fCH"/>
+                <outlet property="settingTitle" destination="9ul-LQ-rNF" id="Xme-dA-Ocj"/>
+            </connections>
             <point key="canvasLocation" x="140.57971014492756" y="76.339285714285708"/>
         </tableViewCell>
     </objects>

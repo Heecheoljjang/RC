@@ -10,6 +10,8 @@
 		9732566427C28FA600838225 /* LifeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732566327C28FA600838225 /* LifeViewController.swift */; };
 		9732566627C298D800838225 /* LifeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9732566527C298D800838225 /* LifeTableViewCell.xib */; };
 		97543C9227C65D8F006B1B97 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97543C9127C65D8F006B1B97 /* MyTableViewCell.xib */; };
+		97543C9627C6AD78006B1B97 /* AddContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97543C9527C6AD78006B1B97 /* AddContent.storyboard */; };
+		97543C9827C6B22A006B1B97 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97543C9727C6B22A006B1B97 /* AddContentViewController.swift */; };
 		97B9986A27C0DCA000698B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B9986927C0DCA000698B1B /* AppDelegate.swift */; };
 		97B9986C27C0DCA000698B1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B9986B27C0DCA000698B1B /* SceneDelegate.swift */; };
 		97B9986E27C0DCA000698B1B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B9986D27C0DCA000698B1B /* HomeViewController.swift */; };
@@ -27,6 +29,8 @@
 		9732566327C28FA600838225 /* LifeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeViewController.swift; sourceTree = "<group>"; };
 		9732566527C298D800838225 /* LifeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LifeTableViewCell.xib; sourceTree = "<group>"; };
 		97543C9127C65D8F006B1B97 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
+		97543C9527C6AD78006B1B97 /* AddContent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddContent.storyboard; sourceTree = "<group>"; };
+		97543C9727C6B22A006B1B97 /* AddContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
 		97B9986627C0DCA000698B1B /* 당근마켓 클론(TableView).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "당근마켓 클론(TableView).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B9986927C0DCA000698B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97B9986B27C0DCA000698B1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +83,9 @@
 				97EEE15427C400D300B0164A /* AroundViewController.swift */,
 				97E9288727C49FE000AEBD84 /* ChatViewController.swift */,
 				97FF9D1D27C6027B00B1BD6E /* MyCarrotViewController.swift */,
+				97543C9727C6B22A006B1B97 /* AddContentViewController.swift */,
 				97B9986F27C0DCA000698B1B /* Main.storyboard */,
+				97543C9527C6AD78006B1B97 /* AddContent.storyboard */,
 				97E9288927C4DC6200AEBD84 /* AroundCollectionViewCell.xib */,
 				9732566527C298D800838225 /* LifeTableViewCell.xib */,
 				97E9288527C4872600AEBD84 /* ChatTableViewCell.xib */,
@@ -153,6 +159,7 @@
 				9732566627C298D800838225 /* LifeTableViewCell.xib in Resources */,
 				97E9288627C4872600AEBD84 /* ChatTableViewCell.xib in Resources */,
 				97B9987327C0DCA100698B1B /* Assets.xcassets in Resources */,
+				97543C9627C6AD78006B1B97 /* AddContent.storyboard in Resources */,
 				97B9987127C0DCA000698B1B /* Main.storyboard in Resources */,
 				97543C9227C65D8F006B1B97 /* MyTableViewCell.xib in Resources */,
 				97E9288A27C4DC6200AEBD84 /* AroundCollectionViewCell.xib in Resources */,
@@ -170,6 +177,7 @@
 				97FF9D1E27C6027B00B1BD6E /* MyCarrotViewController.swift in Sources */,
 				97EEE15527C400D300B0164A /* AroundViewController.swift in Sources */,
 				97B9986A27C0DCA000698B1B /* AppDelegate.swift in Sources */,
+				97543C9827C6B22A006B1B97 /* AddContentViewController.swift in Sources */,
 				9732566427C28FA600838225 /* LifeViewController.swift in Sources */,
 				97E9288827C49FE000AEBD84 /* ChatViewController.swift in Sources */,
 				97B9986C27C0DCA000698B1B /* SceneDelegate.swift in Sources */,
