@@ -20,7 +20,7 @@ class LifeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let myTableViewCellXib = UINib(nibName: "LifeCollectionViewCell", bundle: nil)
+        let myTableViewCellXib = UINib(nibName: "LifeTableViewCell", bundle: nil)
         
         self.lifeTableView.register(myTableViewCellXib, forCellReuseIdentifier: "cell")
 
