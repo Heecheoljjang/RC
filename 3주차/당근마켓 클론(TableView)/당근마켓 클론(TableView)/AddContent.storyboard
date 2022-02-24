@@ -40,6 +40,9 @@
                                 <state key="normal" title="완료">
                                     <color key="titleColor" systemColor="systemOrangeColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="completeBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YJr-IB-53v"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvE-TK-Fgc">
                                 <rect key="frame" x="0.0" y="96.5" width="414" height="1"/>
@@ -161,7 +164,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bodyText" destination="kTi-kq-w3u" id="yLx-ho-Y38"/>
                         <outlet property="bodyTextView" destination="kTi-kq-w3u" id="eya-nX-zfV"/>
+                        <outlet property="imgName" destination="Q92-aZ-uqa" id="5ke-fi-GWP"/>
+                        <outlet property="location" destination="wvr-ps-XaO" id="9H8-p2-MNH"/>
+                        <outlet property="price" destination="nWl-JL-uwz" id="2fl-ie-A4j"/>
+                        <outlet property="textTitle" destination="614-Pc-gsx" id="gPZ-Hc-8qB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

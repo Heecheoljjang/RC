@@ -12,6 +12,8 @@
 		97543C9227C65D8F006B1B97 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97543C9127C65D8F006B1B97 /* MyTableViewCell.xib */; };
 		97543C9627C6AD78006B1B97 /* AddContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97543C9527C6AD78006B1B97 /* AddContent.storyboard */; };
 		97543C9827C6B22A006B1B97 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97543C9727C6B22A006B1B97 /* AddContentViewController.swift */; };
+		976268A227C77280000D7ACC /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976268A127C77280000D7ACC /* protocol.swift */; };
+		976268A427C7BE77000D7ACC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976268A327C7BE77000D7ACC /* DetailViewController.swift */; };
 		97B9986A27C0DCA000698B1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B9986927C0DCA000698B1B /* AppDelegate.swift */; };
 		97B9986C27C0DCA000698B1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B9986B27C0DCA000698B1B /* SceneDelegate.swift */; };
 		97B9986E27C0DCA000698B1B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B9986D27C0DCA000698B1B /* HomeViewController.swift */; };
@@ -31,6 +33,8 @@
 		97543C9127C65D8F006B1B97 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		97543C9527C6AD78006B1B97 /* AddContent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddContent.storyboard; sourceTree = "<group>"; };
 		97543C9727C6B22A006B1B97 /* AddContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
+		976268A127C77280000D7ACC /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
+		976268A327C7BE77000D7ACC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		97B9986627C0DCA000698B1B /* 당근마켓 클론(TableView).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "당근마켓 클론(TableView).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B9986927C0DCA000698B1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97B9986B27C0DCA000698B1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				97E9288727C49FE000AEBD84 /* ChatViewController.swift */,
 				97FF9D1D27C6027B00B1BD6E /* MyCarrotViewController.swift */,
 				97543C9727C6B22A006B1B97 /* AddContentViewController.swift */,
+				976268A327C7BE77000D7ACC /* DetailViewController.swift */,
+				976268A127C77280000D7ACC /* protocol.swift */,
 				97B9986F27C0DCA000698B1B /* Main.storyboard */,
 				97543C9527C6AD78006B1B97 /* AddContent.storyboard */,
 				97E9288927C4DC6200AEBD84 /* AroundCollectionViewCell.xib */,
@@ -177,8 +183,10 @@
 				97FF9D1E27C6027B00B1BD6E /* MyCarrotViewController.swift in Sources */,
 				97EEE15527C400D300B0164A /* AroundViewController.swift in Sources */,
 				97B9986A27C0DCA000698B1B /* AppDelegate.swift in Sources */,
+				976268A227C77280000D7ACC /* protocol.swift in Sources */,
 				97543C9827C6B22A006B1B97 /* AddContentViewController.swift in Sources */,
 				9732566427C28FA600838225 /* LifeViewController.swift in Sources */,
+				976268A427C7BE77000D7ACC /* DetailViewController.swift in Sources */,
 				97E9288827C49FE000AEBD84 /* ChatViewController.swift in Sources */,
 				97B9986C27C0DCA000698B1B /* SceneDelegate.swift in Sources */,
 			);

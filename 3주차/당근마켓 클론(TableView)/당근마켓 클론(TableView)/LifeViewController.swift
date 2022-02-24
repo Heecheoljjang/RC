@@ -17,6 +17,22 @@ class LifeViewController: UIViewController {
     
     @IBOutlet weak var lifeTableView: UITableView!
     
+    let floatingButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        button.layer.cornerRadius = 25
+        button.backgroundColor = .systemOrange
+        
+        let image = UIImage(systemName: "pencil",
+                            withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold) )
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
+        
+        button.layer.shadowRadius = 45
+        button.layer.shadowOpacity = 1
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,8 +40,23 @@ class LifeViewController: UIViewController {
         
         self.lifeTableView.register(myTableViewCellXib, forCellReuseIdentifier: "cell")
 
+        view.addSubview(floatingButton)
+        floatingButton.addTarget(self, action: #selector(didTapBtn), for: .touchUpInside)
+        
+    }
+    override func viewDidLayoutSubviews() {
+        super .viewDidLayoutSubviews()
+        
+        floatingButton.frame = CGRect(x: view.frame.size.width - 50 - 17,
+                                      y: view.frame.size.height - 50 - 10 - 80,
+                                      width: 50,
+                                      height: 50)
     }
     
+    @objc func didTapBtn() {
+        
+        
+    }
 }
 
 

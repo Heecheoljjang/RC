@@ -9,7 +9,14 @@ import UIKit
 
 class AddContentViewController: UIViewController {
 
+    var delegate: SendDataDelegate?
+    
     @IBOutlet weak var bodyTextView: UITextView!
+    @IBOutlet weak var imgName: UITextField!
+    @IBOutlet weak var textTitle: UITextField!
+    @IBOutlet weak var price: UITextField!
+    @IBOutlet weak var location: UITextField!
+    @IBOutlet weak var bodyText: UITextView!
     
     
     override func viewDidLoad() {
@@ -22,14 +29,34 @@ class AddContentViewController: UIViewController {
 
     }
     
-    
-    
     @IBAction func dismissBtn(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
         
     }
     
+    @IBAction func completeBtn(_ sender: Any) {
+
+        guard let imageText = imgName.text else { return }
+        guard let titleText = textTitle.text else { return }
+        guard let location = location.text else { return }
+        guard let price = price.text else { return }
+        guard let image = UIImage(named: imageText) else { return }
+        guard let body = bodyTextView.text else { return }
+
+        let data = HomeTableStruct(itemImg: image, titleLabel: titleText, location: location, price: price, likeBtn: false, body: body)
+        delegate?.sendData(data: data)
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func numberFormatter(number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        return numberFormatter.string(from: NSNumber(value: number))!
+    }
 }
 
 //TextView PlaceHolder
