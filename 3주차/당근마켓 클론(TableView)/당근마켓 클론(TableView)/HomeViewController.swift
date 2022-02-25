@@ -33,24 +33,26 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac1")!, titleLabel: "iMaciMaciMaciMaciMaciMac", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac2")!, titleLabel: "iMac2", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac3")!, titleLabel: "iMac3", location: "아아구 아아1동", price: "200,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac4")!, titleLabel: "iMac4iMac4iMac4iMac4iMac4", location: "아아구 아아1동", price: "300,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac5")!, titleLabel: "iMac5", location: "아아구 아아1동", price: "110,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPad1")!, titleLabel: "iPad1", location: "아아구 아아1동", price: "30,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPad2")!, titleLabel: "iPad2", location: "아아구 아아1동", price: "10,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPhone1")!, titleLabel: "iPhone1", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPhone2")!, titleLabel: "iPhone2", location: "아아구 아아1동", price: "1,200,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPhone3")!, titleLabel: "iPhone3", location: "아아구 아아1동", price: "70,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPhone4")!, titleLabel: "iPhone4", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "MacBook1")!, titleLabel: "MacBook1", location: "아아구 아아1동", price: "290,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "MacBook2")!, titleLabel: "MacBook2", location: "아아구 아아1동", price: "70,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "MacBook3")!, titleLabel: "MacBook33434", location: "아아구 아아1동", price: "230,000", likeBtn: false, body: "aaa"))
-        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "MacBook4")!, titleLabel: "MacBook4234424", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "aaa"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac1")!, titleLabel: "iMaciMaciMaciMaciMaciMac", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "아이맥1입니다."))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac2")!, titleLabel: "iMac2", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "아이맥2이입ㄴ디ㅏ"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac3")!, titleLabel: "iMac3", location: "아아구 아아1동", price: "200,000", likeBtn: false, body: "아이맥3입니다."))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac4")!, titleLabel: "iMac4iMac4iMac4iMac4iMac4", location: "아아구 아아1동", price: "300,000", likeBtn: false, body: "아이맥4인데 안팝니다"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iMac5")!, titleLabel: "iMac5", location: "아아구 아아1동", price: "110,000", likeBtn: false, body: "마지막 아이맥입니다."))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPad1")!, titleLabel: "iPad1", location: "아아구 아아1동", price: "30,000", likeBtn: false, body: "아이패드1입니다. "))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPad2")!, titleLabel: "iPad2", location: "아아구 아아1동", price: "10,000", likeBtn: false, body: "아이패드2입니다."))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPhone1")!, titleLabel: "iPhone1", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "아이폰1"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPhone2")!, titleLabel: "iPhone2", location: "아아구 아아1동", price: "1,200,000", likeBtn: false, body: "아이폰2"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPhone3")!, titleLabel: "iPhone3", location: "아아구 아아1동", price: "70,000", likeBtn: false, body: "아이폰3"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "iPhone4")!, titleLabel: "iPhone4", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "아이폰4"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "MacBook1")!, titleLabel: "MacBook1", location: "아아구 아아1동", price: "290,000", likeBtn: false, body: "맥북맥북"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "MacBook2")!, titleLabel: "MacBook2", location: "아아구 아아1동", price: "70,000", likeBtn: false, body: "맥북맥북맥북"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "MacBook3")!, titleLabel: "MacBook33434", location: "아아구 아아1동", price: "230,000", likeBtn: false, body: "맥북팔아요"))
+        HomeTableViewCellInfo.append(HomeTableStruct(itemImg: UIImage(named: "MacBook4")!, titleLabel: "MacBook4234424", location: "아아구 아아1동", price: "100,000", likeBtn: false, body: "십만원에 팔아요"))
         
         view.addSubview(floatingButton)
         floatingButton.addTarget(self, action: #selector(didTapBtn), for: .touchUpInside)
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +103,17 @@ extension HomeViewController: SendDataDelegate {
 }
 
 extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "detail") as? DetailViewController else { return }
     
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        vc.tempImage = HomeTableViewCellInfo[indexPath.row].itemImg
+        vc.tempLocation = HomeTableViewCellInfo[indexPath.row].location
+        vc.tempTitleLabel = HomeTableViewCellInfo[indexPath.row].titleLabel
+        vc.tempBodyText = HomeTableViewCellInfo[indexPath.row].body
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, CellButtonDelegate { //, CellButtonDelegate
@@ -150,22 +162,23 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var likeBtn: UIButton!
-        
+
     var delegate: CellButtonDelegate?
     var index: Int?
+    var isTapped: Bool = false
     
     @IBAction func likeBtnTapped(_ sender: UIButton) {
-
+        
         guard let index = index else { return }
-        if sender.isSelected {
+        if isTapped == false {
             isTouched = true
             delegate?.didTappedLikeBtn(index: index, like: true)
+            isTapped = true
         } else {
             isTouched = false
             delegate?.didTappedLikeBtn(index: index, like: false)
+            isTapped = false
         }
-        sender.isSelected = !sender.isSelected
-        
         
     }
 
@@ -173,15 +186,11 @@ class HomeTableViewCell: UITableViewCell {
         didSet {
             if isTouched == true {
                 likeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            } else {
+            } else if isTouched == false {
                 likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
             }
         }
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-            super.setSelected(selected, animated: animated)
-
-        }
 }
 
 struct HomeTableStruct {

@@ -11,7 +11,6 @@ class AddContentViewController: UIViewController {
 
     var delegate: SendDataDelegate?
     
-    @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var imgName: UITextField!
     @IBOutlet weak var textTitle: UITextField!
     @IBOutlet weak var price: UITextField!
@@ -22,10 +21,10 @@ class AddContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        placeholderSetting()
-        if bodyTextView.allowsEditingTextAttributes == true {
-            textViewDidBeginEditing(bodyTextView)
-        }
+        bodyText.delegate = self
+        
+        bodyText.text = "동동에 올릴 게시글 내용을 작성해주세요."
+        bodyText.textColor = UIColor.systemGray3
 
     }
     
@@ -42,9 +41,9 @@ class AddContentViewController: UIViewController {
         guard let location = location.text else { return }
         guard let price = price.text else { return }
         guard let image = UIImage(named: imageText) else { return }
-        guard let body = bodyTextView.text else { return }
+        guard let body = bodyText.text else { return }
 
-        let data = HomeTableStruct(itemImg: image, titleLabel: titleText, location: location, price: price, likeBtn: false, body: body)
+        let data = HomeTableStruct(itemImg: image, titleLabel: titleText, location: location, price: numberFormatter(number: Int(price)!), likeBtn: false, body: body)
         delegate?.sendData(data: data)
         
         self.dismiss(animated: true, completion: nil)
@@ -57,30 +56,27 @@ class AddContentViewController: UIViewController {
         
         return numberFormatter.string(from: NSNumber(value: number))!
     }
+    func textViewSetUp() {
+        if bodyText.text == "동동에 올릴 게시글 내용을 작성해주세요." {
+            bodyText.text = ""
+            bodyText.textColor = UIColor.black
+        } else if bodyText.text == "" {
+            bodyText.text = "동동에 올릴 게시글 내용을 작성해주세요."
+            bodyText.textColor = UIColor.systemGray3
+        }
+    }
 }
 
 //TextView PlaceHolder
 
 extension AddContentViewController: UITextViewDelegate {
-    
-    func placeholderSetting() {
-        bodyTextView.delegate = self
-        bodyTextView.text = "동네에 올릴 게시글 내용을 작성해주세요."
-        bodyTextView.textColor = UIColor.systemGray3
-            
-        }
         
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-        
+        textViewSetUp()
     }
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "동네에 올릴 게시글 내용을 작성해주세요."
-            textView.textColor = UIColor.systemGray3
+        if textView.text == "" {
+            textViewSetUp()
         }
     }
 }

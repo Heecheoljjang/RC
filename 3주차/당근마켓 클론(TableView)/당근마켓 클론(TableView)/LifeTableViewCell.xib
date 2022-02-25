@@ -142,7 +142,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bodyText" destination="4PM-Z4-Orx" id="yGc-iT-op3"/>
+                <outlet property="bodyText" destination="4PM-Z4-Orx" id="Y2I-IR-vyW"/>
+                <outlet property="category" destination="tuJ-MY-wBJ" id="9gG-jH-tEc"/>
+                <outlet property="location" destination="6Md-E3-ScU" id="jFU-T5-LGa"/>
+                <outlet property="name" destination="XAN-Bd-SMA" id="h7y-C5-gVN"/>
             </connections>
             <point key="canvasLocation" x="218.11594202898553" y="93.75"/>
         </tableViewCell>

@@ -15,3 +15,8 @@ protocol SendDataDelegate {
 protocol CellButtonDelegate {
     func didTappedLikeBtn(index: Int, like: Bool)
 }
+
+protocol SendLifeTableDataDelegate {
+    func sendData(data: LifeTableStruct)
+}
+

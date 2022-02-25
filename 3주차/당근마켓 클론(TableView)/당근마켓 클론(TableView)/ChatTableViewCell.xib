@@ -85,6 +85,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="body" destination="0PA-C1-naj" id="05Z-Jf-j5W"/>
                 <outlet property="id" destination="HED-5y-GDE" id="Fbj-T7-PGm"/>
                 <outlet property="profileImg" destination="3IV-QG-IJX" id="WYb-UP-c3R"/>
             </connections>

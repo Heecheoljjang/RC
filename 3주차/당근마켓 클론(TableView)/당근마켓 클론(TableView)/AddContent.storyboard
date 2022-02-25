@@ -165,7 +165,6 @@
                     </view>
                     <connections>
                         <outlet property="bodyText" destination="kTi-kq-w3u" id="yLx-ho-Y38"/>
-                        <outlet property="bodyTextView" destination="kTi-kq-w3u" id="eya-nX-zfV"/>
                         <outlet property="imgName" destination="Q92-aZ-uqa" id="5ke-fi-GWP"/>
                         <outlet property="location" destination="wvr-ps-XaO" id="9H8-p2-MNH"/>
                         <outlet property="price" destination="nWl-JL-uwz" id="2fl-ie-A4j"/>
