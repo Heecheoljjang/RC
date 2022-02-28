@@ -16,7 +16,7 @@ class StartViewController: UIViewController {
     }
     @IBAction func start(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: "main") as? ViewController else { return }
+        guard let vc = sb.instantiateViewController(withIdentifier: "main") as? MainViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
