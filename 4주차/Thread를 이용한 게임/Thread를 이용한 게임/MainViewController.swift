@@ -26,6 +26,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var thirdGuestView: UIView!
     @IBOutlet weak var thirdGuestLabel: UILabel!
     
+    @IBOutlet weak var fourthGuestView: UIView!
+    @IBOutlet weak var fourthGuestLabel: UILabel!
+    
     //목숨
     @IBOutlet weak var lifeView: UIView!
     @IBOutlet weak var lifeStackView: UIStackView!
@@ -74,9 +77,11 @@ class MainViewController: UIViewController {
     var timeSeven = 20
     var timeEight = 20
     var timeNine = 20
+    
     var timeFirst = 20
     var timeSecond = 20
     var timeThird = 20
+    var timeFourth = 20
 
     var mainTimer: Timer?
     var timerOne: Timer?
@@ -91,6 +96,7 @@ class MainViewController: UIViewController {
     var timerFirstGuest: Timer?
     var timerSecondGuest: Timer?
     var timerThirdGuest: Timer?
+    var timerFourthGuest: Timer?
     
     var currentPick: String = "kettle"
     
@@ -103,11 +109,13 @@ class MainViewController: UIViewController {
     let firstGuestTime = Int.random(in: 52...58)
     let secondGuestTime = Int.random(in: 35...40)
     let thirdGuestTime = Int.random(in: 24...30)
+    let fourthGuestTime = Int.random(in: 15...19)
     
     
-    let firstGuestNum = Int.random(in: 1...7)
-    let secondGuestNum = Int.random(in: 1...7)
-    let thirdGuestNum = Int.random(in: 1...7)
+    let firstGuestNum = Int.random(in: 2...7)
+    let secondGuestNum = Int.random(in: 2...7)
+    let thirdGuestNum = Int.random(in: 2...7)
+    let fourthGuestNum = Int.random(in: 2...7)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +123,7 @@ class MainViewController: UIViewController {
         firstGuestLabel.text = "손님 1: 붕어빵 \(firstGuestNum)개 주세요."
         secondGuestLabel.text = "손님 2: 붕어빵 \(secondGuestNum)개 주세요."
         thirdGuestLabel.text = "손님 3: 붕어빵 \(thirdGuestNum)개 주세요."
+        fourthGuestLabel.text = "손님 4: 붕어빵 \(fourthGuestNum)개 주세요."
                 
         mainTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
         
@@ -128,6 +137,7 @@ class MainViewController: UIViewController {
         firstGuestView.layer.cornerRadius = 10
         secondGuestView.layer.cornerRadius = 10
         thirdGuestView.layer.cornerRadius = 10
+        fourthGuestView.layer.cornerRadius = 10
         
         kettleView.layer.cornerRadius = 5
         kettleView.layer.masksToBounds = true
@@ -135,8 +145,6 @@ class MainViewController: UIViewController {
         redBeanView.layer.masksToBounds = true
         handView.layer.cornerRadius = 5
         handView.layer.masksToBounds = true
-        
-        
 
     }
     //메인 타이머 함수
@@ -171,6 +179,11 @@ class MainViewController: UIViewController {
             thirdGuestView.isHidden = false
             thirdGuest()
         }
+        
+        if progressTime == fourthGuestTime {
+            fourthGuestView.isHidden = false
+            fourthGuest()
+        }
 
         print(progressTime)
     }
@@ -185,7 +198,7 @@ class MainViewController: UIViewController {
     }
     @IBAction func pickKettle(_ sender: Any) {
         currentPick = "kettle"
-        currentPickLabel.text = "주전자"
+        currentPickLabel.text = "반죽"
     }
     
 // MARK: 첫 번째 붕어빵 틀
@@ -233,7 +246,6 @@ class MainViewController: UIViewController {
             if currentPick == "hand" {
                 if timeOne >= 1 && timeOne <= 4 && fishBreads[0].isRedbeaned == true {
                     successCount += 1
-                    totalCount += 1
                     fishCountLabel.text = String(successCount)
                     fishOne.image = UIImage(named: "0") // 초기화
                     timerOne?.invalidate()
@@ -264,6 +276,20 @@ class MainViewController: UIViewController {
                         timeOne = 20
 
                     } else if life == 1{
+                        timerOne?.invalidate()
+                        timerTwo?.invalidate()
+                        timerThree?.invalidate()
+                        timerFour?.invalidate()
+                        timerFive?.invalidate()
+                        timerSix?.invalidate()
+                        timerSeven?.invalidate()
+                        timerEight?.invalidate()
+                        timerNine?.invalidate()
+                        timerFirstGuest?.invalidate()
+                        timerSecondGuest?.invalidate()
+                        timerThirdGuest?.invalidate()
+                        timerFourthGuest?.invalidate()
+                        
                         mainTimer?.invalidate()
                         let sb = UIStoryboard(name: "Main", bundle: nil)
                         guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -299,6 +325,20 @@ class MainViewController: UIViewController {
                     timeOne = 20
 
                 } else if life == 1{
+                    timerOne?.invalidate()
+                    timerTwo?.invalidate()
+                    timerThree?.invalidate()
+                    timerFour?.invalidate()
+                    timerFive?.invalidate()
+                    timerSix?.invalidate()
+                    timerSeven?.invalidate()
+                    timerEight?.invalidate()
+                    timerNine?.invalidate()
+                    timerFirstGuest?.invalidate()
+                    timerSecondGuest?.invalidate()
+                    timerThirdGuest?.invalidate()
+                    timerFourthGuest?.invalidate()
+                    
                     mainTimer?.invalidate()
                     let sb = UIStoryboard(name: "Main", bundle: nil)
                     guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -364,7 +404,6 @@ class MainViewController: UIViewController {
             if currentPick == "hand" {
                 if timeTwo >= 1 && timeTwo <= 4 && fishBreads[1].isRedbeaned == true {
                     successCount += 1
-                    totalCount += 1
                     fishCountLabel.text = String(successCount)
                     fishTwo.image = UIImage(named: "0") // 초기화
                     timerTwo?.invalidate()
@@ -395,6 +434,20 @@ class MainViewController: UIViewController {
                         timeTwo = 20
 
                     } else if life == 1{
+                        timerOne?.invalidate()
+                        timerTwo?.invalidate()
+                        timerThree?.invalidate()
+                        timerFour?.invalidate()
+                        timerFive?.invalidate()
+                        timerSix?.invalidate()
+                        timerSeven?.invalidate()
+                        timerEight?.invalidate()
+                        timerNine?.invalidate()
+                        timerFirstGuest?.invalidate()
+                        timerSecondGuest?.invalidate()
+                        timerThirdGuest?.invalidate()
+                        timerFourthGuest?.invalidate()
+                        
                         mainTimer?.invalidate()
                         let sb = UIStoryboard(name: "Main", bundle: nil)
                         guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -430,6 +483,20 @@ class MainViewController: UIViewController {
                     timeTwo = 20
 
                 } else if life == 1{
+                    timerOne?.invalidate()
+                    timerTwo?.invalidate()
+                    timerThree?.invalidate()
+                    timerFour?.invalidate()
+                    timerFive?.invalidate()
+                    timerSix?.invalidate()
+                    timerSeven?.invalidate()
+                    timerEight?.invalidate()
+                    timerNine?.invalidate()
+                    timerFirstGuest?.invalidate()
+                    timerSecondGuest?.invalidate()
+                    timerThirdGuest?.invalidate()
+                    timerFourthGuest?.invalidate()
+                    
                     mainTimer?.invalidate()
                     let sb = UIStoryboard(name: "Main", bundle: nil)
                     guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -484,7 +551,7 @@ class MainViewController: UIViewController {
                     fishThree.image = UIImage(named: "3")
                     fishBreads[2].currentStatus = 3
                 } else if timeThree < 11 {
-                    fishTwo.image = UIImage(named: "4")
+                    fishThree.image = UIImage(named: "4")
                     fishBreads[2].currentStatus = 4 // 4는 탄 거
                 }
             }
@@ -492,7 +559,6 @@ class MainViewController: UIViewController {
             if currentPick == "hand" {
                 if timeThree >= 1 && timeThree <= 4 && fishBreads[2].isRedbeaned == true {
                     successCount += 1
-                    totalCount += 1
                     fishCountLabel.text = String(successCount)
                     fishThree.image = UIImage(named: "0") // 초기화
                     timerThree?.invalidate()
@@ -523,6 +589,20 @@ class MainViewController: UIViewController {
                         timeThree = 20
 
                     } else if life == 1{
+                        timerOne?.invalidate()
+                        timerTwo?.invalidate()
+                        timerThree?.invalidate()
+                        timerFour?.invalidate()
+                        timerFive?.invalidate()
+                        timerSix?.invalidate()
+                        timerSeven?.invalidate()
+                        timerEight?.invalidate()
+                        timerNine?.invalidate()
+                        timerFirstGuest?.invalidate()
+                        timerSecondGuest?.invalidate()
+                        timerThirdGuest?.invalidate()
+                        timerFourthGuest?.invalidate()
+                        
                         mainTimer?.invalidate()
                         let sb = UIStoryboard(name: "Main", bundle: nil)
                         guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -558,6 +638,20 @@ class MainViewController: UIViewController {
                     timeThree = 20
 
                 } else if life == 1{
+                    timerOne?.invalidate()
+                    timerTwo?.invalidate()
+                    timerThree?.invalidate()
+                    timerFour?.invalidate()
+                    timerFive?.invalidate()
+                    timerSix?.invalidate()
+                    timerSeven?.invalidate()
+                    timerEight?.invalidate()
+                    timerNine?.invalidate()
+                    timerFirstGuest?.invalidate()
+                    timerSecondGuest?.invalidate()
+                    timerThirdGuest?.invalidate()
+                    timerFourthGuest?.invalidate()
+                    
                     mainTimer?.invalidate()
                     let sb = UIStoryboard(name: "Main", bundle: nil)
                     guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -621,7 +715,6 @@ class MainViewController: UIViewController {
             if currentPick == "hand" {
                 if timeFour >= 1 && timeFour <= 4 && fishBreads[3].isRedbeaned == true {
                     successCount += 1
-                    totalCount += 1
                     fishCountLabel.text = String(successCount)
                     fishFour.image = UIImage(named: "0") // 초기화
                     timerFour?.invalidate()
@@ -652,6 +745,20 @@ class MainViewController: UIViewController {
                         timeFour = 20
 
                     } else if life == 1{
+                        timerOne?.invalidate()
+                        timerTwo?.invalidate()
+                        timerThree?.invalidate()
+                        timerFour?.invalidate()
+                        timerFive?.invalidate()
+                        timerSix?.invalidate()
+                        timerSeven?.invalidate()
+                        timerEight?.invalidate()
+                        timerNine?.invalidate()
+                        timerFirstGuest?.invalidate()
+                        timerSecondGuest?.invalidate()
+                        timerThirdGuest?.invalidate()
+                        timerFourthGuest?.invalidate()
+                        
                         mainTimer?.invalidate()
                         let sb = UIStoryboard(name: "Main", bundle: nil)
                         guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -687,6 +794,20 @@ class MainViewController: UIViewController {
                     timeFour = 20
 
                 } else if life == 1{
+                    timerOne?.invalidate()
+                    timerTwo?.invalidate()
+                    timerThree?.invalidate()
+                    timerFour?.invalidate()
+                    timerFive?.invalidate()
+                    timerSix?.invalidate()
+                    timerSeven?.invalidate()
+                    timerEight?.invalidate()
+                    timerNine?.invalidate()
+                    timerFirstGuest?.invalidate()
+                    timerSecondGuest?.invalidate()
+                    timerThirdGuest?.invalidate()
+                    timerFourthGuest?.invalidate()
+                    
                     mainTimer?.invalidate()
                     let sb = UIStoryboard(name: "Main", bundle: nil)
                     guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -749,7 +870,6 @@ class MainViewController: UIViewController {
             if currentPick == "hand" {
                 if timeFive >= 1 && timeFive <= 4 && fishBreads[4].isRedbeaned == true {
                     successCount += 1
-                    totalCount += 1
                     fishCountLabel.text = String(successCount)
                     fishFive.image = UIImage(named: "0") // 초기화
                     timerFive?.invalidate()
@@ -780,6 +900,20 @@ class MainViewController: UIViewController {
                         timeFive = 20
 
                     } else if life == 1{
+                        timerOne?.invalidate()
+                        timerTwo?.invalidate()
+                        timerThree?.invalidate()
+                        timerFour?.invalidate()
+                        timerFive?.invalidate()
+                        timerSix?.invalidate()
+                        timerSeven?.invalidate()
+                        timerEight?.invalidate()
+                        timerNine?.invalidate()
+                        timerFirstGuest?.invalidate()
+                        timerSecondGuest?.invalidate()
+                        timerThirdGuest?.invalidate()
+                        timerFourthGuest?.invalidate()
+                        
                         mainTimer?.invalidate()
                         let sb = UIStoryboard(name: "Main", bundle: nil)
                         guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -815,6 +949,20 @@ class MainViewController: UIViewController {
                     timeFive = 20
 
                 } else if life == 1{
+                    timerOne?.invalidate()
+                    timerTwo?.invalidate()
+                    timerThree?.invalidate()
+                    timerFour?.invalidate()
+                    timerFive?.invalidate()
+                    timerSix?.invalidate()
+                    timerSeven?.invalidate()
+                    timerEight?.invalidate()
+                    timerNine?.invalidate()
+                    timerFirstGuest?.invalidate()
+                    timerSecondGuest?.invalidate()
+                    timerThirdGuest?.invalidate()
+                    timerFourthGuest?.invalidate()
+                    
                     mainTimer?.invalidate()
                     let sb = UIStoryboard(name: "Main", bundle: nil)
                     guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -877,7 +1025,6 @@ class MainViewController: UIViewController {
             if currentPick == "hand" {
                 if timeSix >= 1 && timeSix <= 4 && fishBreads[5].isRedbeaned == true {
                     successCount += 1
-                    totalCount += 1
                     fishCountLabel.text = String(successCount)
                     fishSix.image = UIImage(named: "0") // 초기화
                     timerSix?.invalidate()
@@ -908,6 +1055,20 @@ class MainViewController: UIViewController {
                         timeSix = 20
 
                     } else if life == 1{
+                        timerOne?.invalidate()
+                        timerTwo?.invalidate()
+                        timerThree?.invalidate()
+                        timerFour?.invalidate()
+                        timerFive?.invalidate()
+                        timerSix?.invalidate()
+                        timerSeven?.invalidate()
+                        timerEight?.invalidate()
+                        timerNine?.invalidate()
+                        timerFirstGuest?.invalidate()
+                        timerSecondGuest?.invalidate()
+                        timerThirdGuest?.invalidate()
+                        timerFourthGuest?.invalidate()
+                        
                         mainTimer?.invalidate()
                         let sb = UIStoryboard(name: "Main", bundle: nil)
                         guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -943,6 +1104,20 @@ class MainViewController: UIViewController {
                     timeSix = 20
 
                 } else if life == 1{
+                    timerOne?.invalidate()
+                    timerTwo?.invalidate()
+                    timerThree?.invalidate()
+                    timerFour?.invalidate()
+                    timerFive?.invalidate()
+                    timerSix?.invalidate()
+                    timerSeven?.invalidate()
+                    timerEight?.invalidate()
+                    timerNine?.invalidate()
+                    timerFirstGuest?.invalidate()
+                    timerSecondGuest?.invalidate()
+                    timerThirdGuest?.invalidate()
+                    timerFourthGuest?.invalidate()
+                    
                     mainTimer?.invalidate()
                     let sb = UIStoryboard(name: "Main", bundle: nil)
                     guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -1005,7 +1180,6 @@ class MainViewController: UIViewController {
             if currentPick == "hand" {
                 if timeSeven >= 1 && timeSeven <= 4 && fishBreads[6].isRedbeaned == true {
                     successCount += 1
-                    totalCount += 1
                     fishCountLabel.text = String(successCount)
                     fishSeven.image = UIImage(named: "0") // 초기화
                     timerSeven?.invalidate()
@@ -1036,6 +1210,20 @@ class MainViewController: UIViewController {
                         timeSeven = 20
 
                     } else if life == 1{
+                        timerOne?.invalidate()
+                        timerTwo?.invalidate()
+                        timerThree?.invalidate()
+                        timerFour?.invalidate()
+                        timerFive?.invalidate()
+                        timerSix?.invalidate()
+                        timerSeven?.invalidate()
+                        timerEight?.invalidate()
+                        timerNine?.invalidate()
+                        timerFirstGuest?.invalidate()
+                        timerSecondGuest?.invalidate()
+                        timerThirdGuest?.invalidate()
+                        timerFourthGuest?.invalidate()
+                        
                         mainTimer?.invalidate()
                         let sb = UIStoryboard(name: "Main", bundle: nil)
                         guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -1071,6 +1259,20 @@ class MainViewController: UIViewController {
                     timeSeven = 20
 
                 } else if life == 1{
+                    timerOne?.invalidate()
+                    timerTwo?.invalidate()
+                    timerThree?.invalidate()
+                    timerFour?.invalidate()
+                    timerFive?.invalidate()
+                    timerSix?.invalidate()
+                    timerSeven?.invalidate()
+                    timerEight?.invalidate()
+                    timerNine?.invalidate()
+                    timerFirstGuest?.invalidate()
+                    timerSecondGuest?.invalidate()
+                    timerThirdGuest?.invalidate()
+                    timerFourthGuest?.invalidate()
+                    
                     mainTimer?.invalidate()
                     let sb = UIStoryboard(name: "Main", bundle: nil)
                     guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -1133,7 +1335,6 @@ class MainViewController: UIViewController {
             if currentPick == "hand" {
                 if timeEight >= 1 && timeEight <= 4 && fishBreads[7].isRedbeaned == true {
                     successCount += 1
-                    totalCount += 1
                     fishCountLabel.text = String(successCount)
                     fishEight.image = UIImage(named: "0") // 초기화
                     timerEight?.invalidate()
@@ -1164,6 +1365,20 @@ class MainViewController: UIViewController {
                         timeEight = 20
 
                     } else if life == 1{
+                        timerOne?.invalidate()
+                        timerTwo?.invalidate()
+                        timerThree?.invalidate()
+                        timerFour?.invalidate()
+                        timerFive?.invalidate()
+                        timerSix?.invalidate()
+                        timerSeven?.invalidate()
+                        timerEight?.invalidate()
+                        timerNine?.invalidate()
+                        timerFirstGuest?.invalidate()
+                        timerSecondGuest?.invalidate()
+                        timerThirdGuest?.invalidate()
+                        timerFourthGuest?.invalidate()
+                        
                         mainTimer?.invalidate()
                         let sb = UIStoryboard(name: "Main", bundle: nil)
                         guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -1199,6 +1414,20 @@ class MainViewController: UIViewController {
                     timeEight = 20
 
                 } else if life == 1{
+                    timerOne?.invalidate()
+                    timerTwo?.invalidate()
+                    timerThree?.invalidate()
+                    timerFour?.invalidate()
+                    timerFive?.invalidate()
+                    timerSix?.invalidate()
+                    timerSeven?.invalidate()
+                    timerEight?.invalidate()
+                    timerNine?.invalidate()
+                    timerFirstGuest?.invalidate()
+                    timerSecondGuest?.invalidate()
+                    timerThirdGuest?.invalidate()
+                    timerFourthGuest?.invalidate()
+                    
                     mainTimer?.invalidate()
                     let sb = UIStoryboard(name: "Main", bundle: nil)
                     guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -1261,7 +1490,6 @@ class MainViewController: UIViewController {
             if currentPick == "hand" {
                 if timeNine >= 1 && timeNine <= 4 && fishBreads[8].isRedbeaned == true {
                     successCount += 1
-                    totalCount += 1
                     fishCountLabel.text = String(successCount)
                     fishNine.image = UIImage(named: "0") // 초기화
                     timerNine?.invalidate()
@@ -1292,6 +1520,20 @@ class MainViewController: UIViewController {
                         timeNine = 20
 
                     } else if life == 1{
+                        timerOne?.invalidate()
+                        timerTwo?.invalidate()
+                        timerThree?.invalidate()
+                        timerFour?.invalidate()
+                        timerFive?.invalidate()
+                        timerSix?.invalidate()
+                        timerSeven?.invalidate()
+                        timerEight?.invalidate()
+                        timerNine?.invalidate()
+                        timerFirstGuest?.invalidate()
+                        timerSecondGuest?.invalidate()
+                        timerThirdGuest?.invalidate()
+                        timerFourthGuest?.invalidate()
+                        
                         mainTimer?.invalidate()
                         let sb = UIStoryboard(name: "Main", bundle: nil)
                         guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -1327,6 +1569,20 @@ class MainViewController: UIViewController {
                     timeNine = 20
 
                 } else if life == 1{
+                    timerOne?.invalidate()
+                    timerTwo?.invalidate()
+                    timerThree?.invalidate()
+                    timerFour?.invalidate()
+                    timerFive?.invalidate()
+                    timerSix?.invalidate()
+                    timerSeven?.invalidate()
+                    timerEight?.invalidate()
+                    timerNine?.invalidate()
+                    timerFirstGuest?.invalidate()
+                    timerSecondGuest?.invalidate()
+                    timerThirdGuest?.invalidate()
+                    timerFourthGuest?.invalidate()
+                    
                     mainTimer?.invalidate()
                     let sb = UIStoryboard(name: "Main", bundle: nil)
                     guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
@@ -1349,28 +1605,53 @@ class MainViewController: UIViewController {
     // MARK: 손님 함수 타이머
     // 첫번째 손님
     private func firstGuest() {
-        timerFirstGuest = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(firstGuestCountDown), userInfo: nil, repeats: true)
+        DispatchQueue.global().async {
+            let runLoop = RunLoop.current
+            self.timerFirstGuest = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.firstGuestCountDown), userInfo: nil, repeats: true)
+            runLoop.run()
+        }
     }
     @objc func firstGuestCountDown() {
         timeFirst -= 1
         if timeFirst == 0 {
             timerFirstGuest?.invalidate()
-            firstGuestLabel.text = "손님 1: 안먹습니다."
-            if life == 3{
-                life -= 1
-                firstLife.tintColor = UIColor(named: "newGreen")
-            } else if life == 2{
-                life -= 1
-                secondLife.tintColor = UIColor(named: "newGreen")
-            } else {
-                mainTimer?.invalidate()
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
-                vc.modalPresentationStyle = .fullScreen
-                vc.tempFailureLabel = failCount
-                vc.tempRestLabel = successCount
-                vc.tempSellLabel = totalCount
-                present(vc, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                self.firstGuestLabel.text = "손님 1: 안먹습니다."
+                UIView.animate(withDuration: 1) {
+                    self.firstGuestView.alpha = 0
+                }
+                if self.life == 3{
+                    self.life -= 1
+                    self.firstLife.tintColor = UIColor(named: "newGreen")
+                } else if self.life == 2{
+                    self.life -= 1
+                
+                    self.secondLife.tintColor = UIColor(named: "newGreen")
+                
+                } else {
+                    self.timerOne?.invalidate()
+                    self.timerTwo?.invalidate()
+                    self.timerThree?.invalidate()
+                    self.timerFour?.invalidate()
+                    self.timerFive?.invalidate()
+                    self.timerSix?.invalidate()
+                    self.timerSeven?.invalidate()
+                    self.timerEight?.invalidate()
+                    self.timerNine?.invalidate()
+                    self.timerFirstGuest?.invalidate()
+                    self.timerSecondGuest?.invalidate()
+                    self.timerThirdGuest?.invalidate()
+                    self.timerFourthGuest?.invalidate()
+                    
+                    self.mainTimer?.invalidate()
+                    let sb = UIStoryboard(name: "Main", bundle: nil)
+                    guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.tempFailureLabel = self.failCount
+                    vc.tempRestLabel = self.successCount
+                    vc.tempSellLabel = self.totalCount
+                    self.present(vc, animated: true, completion: nil)
+                }
             }
             timeFirst = 20
         }
@@ -1378,64 +1659,166 @@ class MainViewController: UIViewController {
     
     // 두번째 손님
     private func secondGuest() {
-        timerSecondGuest = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(secondGuestCountDown), userInfo: nil, repeats: true)
+        DispatchQueue.global().async {
+            let runLoop = RunLoop.current
+            self.timerSecondGuest = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.secondGuestCountDown), userInfo: nil, repeats: true)
+            runLoop.run()
+        }
     }
     @objc func secondGuestCountDown() {
         timeSecond -= 1
         if timeSecond == 0 {
             timerSecondGuest?.invalidate()
-            secondGuestLabel.text = "손님 2: 안먹습니다."
-            if life == 3{
-                life -= 1
-                firstLife.tintColor = UIColor(named: "newGreen")
-            } else if life == 2{
-                life -= 1
-                secondLife.tintColor = UIColor(named: "newGreen")
-            } else {
-                mainTimer?.invalidate()
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
-                vc.modalPresentationStyle = .fullScreen
-                vc.tempFailureLabel = failCount
-                vc.tempRestLabel = successCount
-                vc.tempSellLabel = totalCount
-                present(vc, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                self.secondGuestLabel.text = "손님 2: 안먹습니다."
+                UIView.animate(withDuration: 1) {
+                    self.secondGuestView.alpha = 0
+                }
+                if self.life == 3{
+                    self.life -= 1
+                    self.firstLife.tintColor = UIColor(named: "newGreen")
+                } else if self.life == 2{
+                    self.life -= 1
+                    self.secondLife.tintColor = UIColor(named: "newGreen")
+                } else {
+                    self.timerOne?.invalidate()
+                    self.timerTwo?.invalidate()
+                    self.timerThree?.invalidate()
+                    self.timerFour?.invalidate()
+                    self.timerFive?.invalidate()
+                    self.timerSix?.invalidate()
+                    self.timerSeven?.invalidate()
+                    self.timerEight?.invalidate()
+                    self.timerNine?.invalidate()
+                    self.timerFirstGuest?.invalidate()
+                    self.timerSecondGuest?.invalidate()
+                    self.timerThirdGuest?.invalidate()
+                    self.timerFourthGuest?.invalidate()
+                    
+                    self.mainTimer?.invalidate()
+                    let sb = UIStoryboard(name: "Main", bundle: nil)
+                    guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.tempFailureLabel = self.failCount
+                    vc.tempRestLabel = self.successCount
+                    vc.tempSellLabel = self.totalCount
+                    self.present(vc, animated: true, completion: nil)
+                }
             }
+            
             timeSecond = 20
         }
     }
     
     // 세번째 손님
     private func thirdGuest() {
-        timerThirdGuest = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(thirdGuestCountDown), userInfo: nil, repeats: true)
+        DispatchQueue.global().async {
+            let runLoop = RunLoop.current
+            self.timerThirdGuest = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.thirdGuestCountDown), userInfo: nil, repeats: true)
+            runLoop.run()
+        }
     }
     @objc func thirdGuestCountDown() {
         timeThird -= 1
         if timeThird == 0 {
             timerThirdGuest?.invalidate()
-            thirdGuestLabel.text = "손님 3: 안먹습니다."
-            if life == 3{
-                life -= 1
-                firstLife.tintColor = UIColor(named: "newGreen")
-            } else if life == 2{
-                life -= 1
-                secondLife.tintColor = UIColor(named: "newGreen")
-            } else {
-                mainTimer?.invalidate()
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
-                vc.modalPresentationStyle = .fullScreen
-                vc.tempFailureLabel = failCount
-                vc.tempRestLabel = successCount
-                vc.tempSellLabel = totalCount
-                present(vc, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                self.thirdGuestLabel.text = "손님 3: 안먹습니다."
+                UIView.animate(withDuration: 1) {
+                    self.thirdGuestView.alpha = 0
+                }
+                if self.life == 3{
+                    self.life -= 1
+                    self.firstLife.tintColor = UIColor(named: "newGreen")
+                } else if self.life == 2{
+                    self.life -= 1
+                    self.secondLife.tintColor = UIColor(named: "newGreen")
+                } else {
+                    self.timerOne?.invalidate()
+                    self.timerTwo?.invalidate()
+                    self.timerThree?.invalidate()
+                    self.timerFour?.invalidate()
+                    self.timerFive?.invalidate()
+                    self.timerSix?.invalidate()
+                    self.timerSeven?.invalidate()
+                    self.timerEight?.invalidate()
+                    self.timerNine?.invalidate()
+                    self.timerFirstGuest?.invalidate()
+                    self.timerSecondGuest?.invalidate()
+                    self.timerThirdGuest?.invalidate()
+                    self.timerFourthGuest?.invalidate()
+                    
+                    self.mainTimer?.invalidate()
+                    let sb = UIStoryboard(name: "Main", bundle: nil)
+                    guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.tempFailureLabel = self.failCount
+                    vc.tempRestLabel = self.successCount
+                    vc.tempSellLabel = self.totalCount
+                    self.present(vc, animated: true, completion: nil)
+                }
             }
             timeThird = 20
         }
     }
+    
+    // 네 번째 손님
+    
+    private func fourthGuest() {
+        DispatchQueue.global().async {
+            let runLoop = RunLoop.current
+            self.timerFourthGuest = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.fourthGuestCountDown), userInfo: nil, repeats: true)
+            runLoop.run()
+        }
+    }
+    @objc func fourthGuestCountDown() {
+        timeFourth -= 1
+        if timeFourth == 0 {
+            timerFourthGuest?.invalidate()
+            DispatchQueue.main.async {
+                self.fourthGuestLabel.text = "손님 4: 안먹습니다."
+                UIView.animate(withDuration: 1) {
+                    self.fourthGuestView.alpha = 0
+                }
+                if self.life == 3{
+                    self.life -= 1
+                    self.firstLife.tintColor = UIColor(named: "newGreen")
+                } else if self.life == 2{
+                    self.life -= 1
+                    self.secondLife.tintColor = UIColor(named: "newGreen")
+                } else {
+                    self.timerOne?.invalidate()
+                    self.timerTwo?.invalidate()
+                    self.timerThree?.invalidate()
+                    self.timerFour?.invalidate()
+                    self.timerFive?.invalidate()
+                    self.timerSix?.invalidate()
+                    self.timerSeven?.invalidate()
+                    self.timerEight?.invalidate()
+                    self.timerNine?.invalidate()
+                    self.timerFirstGuest?.invalidate()
+                    self.timerSecondGuest?.invalidate()
+                    self.timerThirdGuest?.invalidate()
+                    self.timerFourthGuest?.invalidate()
+                    
+                    self.mainTimer?.invalidate()
+                    let sb = UIStoryboard(name: "Main", bundle: nil)
+                    guard let vc = sb.instantiateViewController(withIdentifier: "FinishViewController") as? FinishViewController else { return }
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.tempFailureLabel = self.failCount
+                    vc.tempRestLabel = self.successCount
+                    vc.tempSellLabel = self.totalCount
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
+            timeFourth = 20
+        }
+    }
+    
     @IBAction func tapFirstGuest(_ sender: Any) {
         if successCount >= firstGuestNum { // 팔 개수가 있는 경우
             successCount -= firstGuestNum
+            totalCount += firstGuestNum
             score += 1000 * firstGuestNum
             scoreLabel.text = String(score)
             fishCountLabel.text = String(successCount)
@@ -1449,6 +1832,7 @@ class MainViewController: UIViewController {
     @IBAction func tapSecondGuest(_ sender: Any) {
         if successCount >= secondGuestNum { // 팔 개수가 있는 경우
             successCount -= secondGuestNum
+            totalCount += secondGuestNum
             score += 1000 * secondGuestNum
             scoreLabel.text = String(score)
             fishCountLabel.text = String(successCount)
@@ -1462,6 +1846,7 @@ class MainViewController: UIViewController {
     @IBAction func tapThirdGuest(_ sender: Any) {
         if successCount >= thirdGuestNum { // 팔 개수가 있는 경우
             successCount -= thirdGuestNum
+            totalCount += thirdGuestNum
             score += 1000 * thirdGuestNum
             scoreLabel.text = String(score)
             fishCountLabel.text = String(successCount)
@@ -1469,6 +1854,20 @@ class MainViewController: UIViewController {
             thirdGuestLabel.text = "감사합니다. 잘 먹겠습니다."
             UIView.animate(withDuration: 1) {
                 self.thirdGuestView.alpha = 0
+            }
+        }
+    }
+    @IBAction func tapFourthGuest(_ sender: Any) {
+        if successCount >= fourthGuestNum { // 팔 개수가 있는 경우
+            successCount -= fourthGuestNum
+            totalCount += fourthGuestNum
+            score += 1000 * fourthGuestNum
+            scoreLabel.text = String(score)
+            fishCountLabel.text = String(successCount)
+            timerFourthGuest?.invalidate()
+            fourthGuestLabel.text = "감사합니다. 잘 먹겠습니다."
+            UIView.animate(withDuration: 1) {
+                self.fourthGuestView.alpha = 0
             }
         }
     }

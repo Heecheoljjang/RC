@@ -8,11 +8,15 @@
 import UIKit
 
 class StartViewController: UIViewController {
-
+    
+    @IBOutlet weak var startBtnView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        startBtnView.layer.cornerRadius = 15
+        startBtnView.layer.borderWidth = 1
+        startBtnView.layer.borderColor = UIColor.black.cgColor
     }
     @IBAction func start(_ sender: Any) {
         let sb = UIStoryboard(name: "Main", bundle: nil)

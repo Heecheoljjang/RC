@@ -22,7 +22,7 @@ class FinishViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         sellFishLabel.text = String(tempSellLabel)
         restFishLabel.text = String(tempRestLabel)
         failFishLabel.text = String(tempFailureLabel)
@@ -32,6 +32,4 @@ class FinishViewController: UIViewController {
         totalPriceLabel.text = String(total)
         
     }
- 
-
 }
