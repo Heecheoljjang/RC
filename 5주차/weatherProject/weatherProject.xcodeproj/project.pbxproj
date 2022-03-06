@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		977DA5EC27D4D8E8005360D0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977DA5EB27D4D8E8005360D0 /* DataModel.swift */; };
+		977DA5EF27D4EF8B005360D0 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 977DA5EE27D4EF8B005360D0 /* KakaoSDK */; };
 		97E23A0E27D37DB100F9451A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E23A0D27D37DB100F9451A /* AppDelegate.swift */; };
 		97E23A1027D37DB100F9451A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E23A0F27D37DB100F9451A /* SceneDelegate.swift */; };
-		97E23A1227D37DB100F9451A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E23A1127D37DB100F9451A /* ViewController.swift */; };
+		97E23A1227D37DB100F9451A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E23A1127D37DB100F9451A /* LoginViewController.swift */; };
 		97E23A1527D37DB100F9451A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E23A1327D37DB100F9451A /* Main.storyboard */; };
 		97E23A1727D37DB200F9451A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E23A1627D37DB200F9451A /* Assets.xcassets */; };
 		97E23A1A27D37DB200F9451A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E23A1827D37DB200F9451A /* LaunchScreen.storyboard */; };
+		97E23A2327D387E800F9451A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 97E23A2227D387E800F9451A /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		977DA5EB27D4D8E8005360D0 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		97E23A0A27D37DB100F9451A /* weatherProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E23A0D27D37DB100F9451A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97E23A0F27D37DB100F9451A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		97E23A1127D37DB100F9451A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		97E23A1127D37DB100F9451A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		97E23A1427D37DB100F9451A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97E23A1627D37DB200F9451A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97E23A1927D37DB200F9451A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97E23A2327D387E800F9451A /* Alamofire in Frameworks */,
+				977DA5EF27D4EF8B005360D0 /* KakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +64,8 @@
 			children = (
 				97E23A0D27D37DB100F9451A /* AppDelegate.swift */,
 				97E23A0F27D37DB100F9451A /* SceneDelegate.swift */,
-				97E23A1127D37DB100F9451A /* ViewController.swift */,
+				97E23A1127D37DB100F9451A /* LoginViewController.swift */,
+				977DA5EB27D4D8E8005360D0 /* DataModel.swift */,
 				97E23A1327D37DB100F9451A /* Main.storyboard */,
 				97E23A1627D37DB200F9451A /* Assets.xcassets */,
 				97E23A1827D37DB200F9451A /* LaunchScreen.storyboard */,
@@ -83,6 +90,10 @@
 			dependencies = (
 			);
 			name = weatherProject;
+			packageProductDependencies = (
+				97E23A2227D387E800F9451A /* Alamofire */,
+				977DA5EE27D4EF8B005360D0 /* KakaoSDK */,
+			);
 			productName = weatherProject;
 			productReference = 97E23A0A27D37DB100F9451A /* weatherProject.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,10 @@
 				Base,
 			);
 			mainGroup = 97E23A0127D37DB100F9451A;
+			packageReferences = (
+				97E23A2127D387E800F9451A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				977DA5ED27D4EF8B005360D0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = 97E23A0B27D37DB100F9451A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97E23A1227D37DB100F9451A /* ViewController.swift in Sources */,
+				97E23A1227D37DB100F9451A /* LoginViewController.swift in Sources */,
+				977DA5EC27D4D8E8005360D0 /* DataModel.swift in Sources */,
 				97E23A0E27D37DB100F9451A /* AppDelegate.swift in Sources */,
 				97E23A1027D37DB100F9451A /* SceneDelegate.swift in Sources */,
 			);
@@ -360,6 +376,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		977DA5ED27D4EF8B005360D0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		97E23A2127D387E800F9451A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		977DA5EE27D4EF8B005360D0 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 977DA5ED27D4EF8B005360D0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		97E23A2227D387E800F9451A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97E23A2127D387E800F9451A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 97E23A0227D37DB100F9451A /* Project object */;
 }
