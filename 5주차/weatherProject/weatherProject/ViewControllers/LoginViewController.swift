@@ -11,9 +11,7 @@ import KakaoSDKCommon
 import KakaoSDKUser
 
 class LoginViewController: UIViewController {
-    
-    @IBOutlet weak var kakaoLoginBtn: UIButton!
-    
+        
     var tempLat: Double?
     var tempLong: Double?
     
@@ -21,7 +19,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
               
     }
-    @IBAction func tapKakaoLoginBtn(_ sender: Any) {
+    
+    @IBAction func tapKakao(_ sender: Any) {
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
             if let error = error {
                 print(error)
@@ -31,9 +30,14 @@ class LoginViewController: UIViewController {
                 
                 //do something
                 _ = oauthToken
+                
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                guard let vc = sb.instantiateViewController(withIdentifier: "main") as? MainViewController else { return }
+                
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
             }
         }
     }
-    
 }
 

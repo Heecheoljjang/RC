@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970C00C327D64AF800D1388F /* StormglassResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970C00C227D64AF800D1388F /* StormglassResponse.swift */; };
 		977DA5EC27D4D8E8005360D0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977DA5EB27D4D8E8005360D0 /* DataModel.swift */; };
 		977DA5EF27D4EF8B005360D0 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 977DA5EE27D4EF8B005360D0 /* KakaoSDK */; };
+		977DA5F127D50318005360D0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977DA5F027D50318005360D0 /* MainViewController.swift */; };
+		977DA5F627D53760005360D0 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 977DA5F527D53760005360D0 /* GoogleSignIn */; };
 		97E23A0E27D37DB100F9451A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E23A0D27D37DB100F9451A /* AppDelegate.swift */; };
 		97E23A1027D37DB100F9451A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E23A0F27D37DB100F9451A /* SceneDelegate.swift */; };
 		97E23A1227D37DB100F9451A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E23A1127D37DB100F9451A /* LoginViewController.swift */; };
@@ -19,7 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		970C00C227D64AF800D1388F /* StormglassResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormglassResponse.swift; sourceTree = "<group>"; };
 		977DA5EB27D4D8E8005360D0 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		977DA5F027D50318005360D0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		97E23A0A27D37DB100F9451A /* weatherProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E23A0D27D37DB100F9451A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97E23A0F27D37DB100F9451A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,15 +42,26 @@
 			files = (
 				97E23A2327D387E800F9451A /* Alamofire in Frameworks */,
 				977DA5EF27D4EF8B005360D0 /* KakaoSDK in Frameworks */,
+				977DA5F627D53760005360D0 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		977DA5F227D50328005360D0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				97E23A1127D37DB100F9451A /* LoginViewController.swift */,
+				977DA5F027D50318005360D0 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		97E23A0127D37DB100F9451A = {
 			isa = PBXGroup;
 			children = (
+				970C00C227D64AF800D1388F /* StormglassResponse.swift */,
 				97E23A0C27D37DB100F9451A /* weatherProject */,
 				97E23A0B27D37DB100F9451A /* Products */,
 			);
@@ -64,11 +80,11 @@
 			children = (
 				97E23A0D27D37DB100F9451A /* AppDelegate.swift */,
 				97E23A0F27D37DB100F9451A /* SceneDelegate.swift */,
-				97E23A1127D37DB100F9451A /* LoginViewController.swift */,
+				977DA5F227D50328005360D0 /* ViewControllers */,
 				977DA5EB27D4D8E8005360D0 /* DataModel.swift */,
 				97E23A1327D37DB100F9451A /* Main.storyboard */,
-				97E23A1627D37DB200F9451A /* Assets.xcassets */,
 				97E23A1827D37DB200F9451A /* LaunchScreen.storyboard */,
+				97E23A1627D37DB200F9451A /* Assets.xcassets */,
 				97E23A1B27D37DB200F9451A /* Info.plist */,
 			);
 			path = weatherProject;
@@ -93,6 +109,7 @@
 			packageProductDependencies = (
 				97E23A2227D387E800F9451A /* Alamofire */,
 				977DA5EE27D4EF8B005360D0 /* KakaoSDK */,
+				977DA5F527D53760005360D0 /* GoogleSignIn */,
 			);
 			productName = weatherProject;
 			productReference = 97E23A0A27D37DB100F9451A /* weatherProject.app */;
@@ -125,6 +142,7 @@
 			packageReferences = (
 				97E23A2127D387E800F9451A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				977DA5ED27D4EF8B005360D0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				977DA5F427D53760005360D0 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 97E23A0B27D37DB100F9451A /* Products */;
 			projectDirPath = "";
@@ -157,6 +175,8 @@
 				977DA5EC27D4D8E8005360D0 /* DataModel.swift in Sources */,
 				97E23A0E27D37DB100F9451A /* AppDelegate.swift in Sources */,
 				97E23A1027D37DB100F9451A /* SceneDelegate.swift in Sources */,
+				977DA5F127D50318005360D0 /* MainViewController.swift in Sources */,
+				970C00C327D64AF800D1388F /* StormglassResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +406,14 @@
 				kind = branch;
 			};
 		};
+		977DA5F427D53760005360D0 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		97E23A2127D387E800F9451A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -401,6 +429,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 977DA5ED27D4EF8B005360D0 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDK;
+		};
+		977DA5F527D53760005360D0 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 977DA5F427D53760005360D0 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
 		};
 		97E23A2227D387E800F9451A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
