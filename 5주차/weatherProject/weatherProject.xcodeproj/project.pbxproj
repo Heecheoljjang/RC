@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		970C00C327D64AF800D1388F /* StormglassResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970C00C227D64AF800D1388F /* StormglassResponse.swift */; };
-		977DA5EC27D4D8E8005360D0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977DA5EB27D4D8E8005360D0 /* DataModel.swift */; };
+		970C00C527D67B9F00D1388F /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970C00C427D67B9F00D1388F /* WeatherRequest.swift */; };
+		9758EFB027D72CAC00F3DF03 /* AddressStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758EFAF27D72CAC00F3DF03 /* AddressStruct.swift */; };
+		9758EFB427D7325500F3DF03 /* AddressRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758EFB327D7325500F3DF03 /* AddressRequest.swift */; };
+		9758EFB627D755B700F3DF03 /* WeatherStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758EFB527D755B700F3DF03 /* WeatherStruct.swift */; };
+		9758EFB827D7D01700F3DF03 /* AirPollutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758EFB727D7D01700F3DF03 /* AirPollutionViewController.swift */; };
+		9768BAFA27D8710D0017D95D /* AirPollutionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9768BAF927D8710D0017D95D /* AirPollutionRequest.swift */; };
+		9768BAFC27D871810017D95D /* AirPollutionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9768BAFB27D871810017D95D /* AirPollutionStruct.swift */; };
 		977DA5EF27D4EF8B005360D0 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 977DA5EE27D4EF8B005360D0 /* KakaoSDK */; };
 		977DA5F127D50318005360D0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977DA5F027D50318005360D0 /* MainViewController.swift */; };
 		977DA5F627D53760005360D0 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 977DA5F527D53760005360D0 /* GoogleSignIn */; };
@@ -22,8 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		970C00C227D64AF800D1388F /* StormglassResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormglassResponse.swift; sourceTree = "<group>"; };
-		977DA5EB27D4D8E8005360D0 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		970C00C427D67B9F00D1388F /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
+		9758EFAF27D72CAC00F3DF03 /* AddressStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressStruct.swift; sourceTree = "<group>"; };
+		9758EFB327D7325500F3DF03 /* AddressRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRequest.swift; sourceTree = "<group>"; };
+		9758EFB527D755B700F3DF03 /* WeatherStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStruct.swift; sourceTree = "<group>"; };
+		9758EFB727D7D01700F3DF03 /* AirPollutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionViewController.swift; sourceTree = "<group>"; };
+		9768BAF927D8710D0017D95D /* AirPollutionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionRequest.swift; sourceTree = "<group>"; };
+		9768BAFB27D871810017D95D /* AirPollutionStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionStruct.swift; sourceTree = "<group>"; };
 		977DA5F027D50318005360D0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		97E23A0A27D37DB100F9451A /* weatherProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E23A0D27D37DB100F9451A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,11 +59,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9758EFB127D72CBE00F3DF03 /* StructModel */ = {
+			isa = PBXGroup;
+			children = (
+				9758EFB527D755B700F3DF03 /* WeatherStruct.swift */,
+				9758EFAF27D72CAC00F3DF03 /* AddressStruct.swift */,
+				9768BAFB27D871810017D95D /* AirPollutionStruct.swift */,
+			);
+			path = StructModel;
+			sourceTree = "<group>";
+		};
+		9758EFB227D72DBB00F3DF03 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				970C00C427D67B9F00D1388F /* WeatherRequest.swift */,
+				9758EFB327D7325500F3DF03 /* AddressRequest.swift */,
+				9768BAF927D8710D0017D95D /* AirPollutionRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		977DA5F227D50328005360D0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				97E23A1127D37DB100F9451A /* LoginViewController.swift */,
 				977DA5F027D50318005360D0 /* MainViewController.swift */,
+				9758EFB727D7D01700F3DF03 /* AirPollutionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -61,7 +92,6 @@
 		97E23A0127D37DB100F9451A = {
 			isa = PBXGroup;
 			children = (
-				970C00C227D64AF800D1388F /* StormglassResponse.swift */,
 				97E23A0C27D37DB100F9451A /* weatherProject */,
 				97E23A0B27D37DB100F9451A /* Products */,
 			);
@@ -81,7 +111,8 @@
 				97E23A0D27D37DB100F9451A /* AppDelegate.swift */,
 				97E23A0F27D37DB100F9451A /* SceneDelegate.swift */,
 				977DA5F227D50328005360D0 /* ViewControllers */,
-				977DA5EB27D4D8E8005360D0 /* DataModel.swift */,
+				9758EFB127D72CBE00F3DF03 /* StructModel */,
+				9758EFB227D72DBB00F3DF03 /* Request */,
 				97E23A1327D37DB100F9451A /* Main.storyboard */,
 				97E23A1827D37DB200F9451A /* LaunchScreen.storyboard */,
 				97E23A1627D37DB200F9451A /* Assets.xcassets */,
@@ -172,11 +203,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				97E23A1227D37DB100F9451A /* LoginViewController.swift in Sources */,
-				977DA5EC27D4D8E8005360D0 /* DataModel.swift in Sources */,
+				9758EFB027D72CAC00F3DF03 /* AddressStruct.swift in Sources */,
+				970C00C527D67B9F00D1388F /* WeatherRequest.swift in Sources */,
+				9768BAFA27D8710D0017D95D /* AirPollutionRequest.swift in Sources */,
+				9758EFB827D7D01700F3DF03 /* AirPollutionViewController.swift in Sources */,
+				9758EFB627D755B700F3DF03 /* WeatherStruct.swift in Sources */,
 				97E23A0E27D37DB100F9451A /* AppDelegate.swift in Sources */,
+				9768BAFC27D871810017D95D /* AirPollutionStruct.swift in Sources */,
+				9758EFB427D7325500F3DF03 /* AddressRequest.swift in Sources */,
 				97E23A1027D37DB100F9451A /* SceneDelegate.swift in Sources */,
 				977DA5F127D50318005360D0 /* MainViewController.swift in Sources */,
-				970C00C327D64AF800D1388F /* StormglassResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +364,8 @@
 				DEVELOPMENT_TEAM = 3C6U386B4C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weatherProject/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치정보를 받아오는 것을 허용하시겠습니까";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치정보를 받아오는 것을 허용하시겠습니까";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -356,6 +394,8 @@
 				DEVELOPMENT_TEAM = 3C6U386B4C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weatherProject/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "사용자의 위치정보를 받아오는 것을 허용하시겠습니까";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치정보를 받아오는 것을 허용하시겠습니까";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
