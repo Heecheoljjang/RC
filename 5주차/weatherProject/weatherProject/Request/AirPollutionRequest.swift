@@ -10,7 +10,7 @@ import Alamofire
 
 class AirPollutionRequest {
     
-    func getAirPollutionData(lat: Double, long: Double, viewcontroller: AirPollutionViewController) {
+    func getAirPollutionData(lat: Double, long: Double, viewcontroller: LoginViewController) {
         
         let url = "https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=\(lat)&lon=\(long)&appid=4af5cb37399a98438645cb803764aa97"
                 

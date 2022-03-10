@@ -11,7 +11,7 @@ import Alamofire
 
 class AddressRequest {
     
-    func getAddressData(lat: Double, long: Double, viewcontroller: MainViewController) {
+    func getAddressData(lat: Double, long: Double, viewcontroller: LoginViewController) {
         
         let url = "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=\(long)&y=\(lat)"
         
@@ -21,7 +21,8 @@ class AddressRequest {
             switch response.result {
             case .success(let response):
                 print("success: \(response)")
-                viewcontroller.setLocationLabel(response)
+                //viewcontroller.setLocationLabel(response)
+                viewcontroller.tempAddressResponse = response
             case .failure(let error):
                 print("error: \(error)")
                 

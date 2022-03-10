@@ -14,6 +14,8 @@
 		9758EFB827D7D01700F3DF03 /* AirPollutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758EFB727D7D01700F3DF03 /* AirPollutionViewController.swift */; };
 		9768BAFA27D8710D0017D95D /* AirPollutionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9768BAF927D8710D0017D95D /* AirPollutionRequest.swift */; };
 		9768BAFC27D871810017D95D /* AirPollutionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9768BAFB27D871810017D95D /* AirPollutionStruct.swift */; };
+		976D57B427D93FD900C0A1A0 /* YesterdayWeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976D57B327D93FD900C0A1A0 /* YesterdayWeatherRequest.swift */; };
+		976D57B627D93FEF00C0A1A0 /* YesterdayWeatherStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976D57B527D93FEF00C0A1A0 /* YesterdayWeatherStruct.swift */; };
 		977DA5EF27D4EF8B005360D0 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 977DA5EE27D4EF8B005360D0 /* KakaoSDK */; };
 		977DA5F127D50318005360D0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977DA5F027D50318005360D0 /* MainViewController.swift */; };
 		977DA5F627D53760005360D0 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 977DA5F527D53760005360D0 /* GoogleSignIn */; };
@@ -34,6 +36,8 @@
 		9758EFB727D7D01700F3DF03 /* AirPollutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionViewController.swift; sourceTree = "<group>"; };
 		9768BAF927D8710D0017D95D /* AirPollutionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionRequest.swift; sourceTree = "<group>"; };
 		9768BAFB27D871810017D95D /* AirPollutionStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionStruct.swift; sourceTree = "<group>"; };
+		976D57B327D93FD900C0A1A0 /* YesterdayWeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayWeatherRequest.swift; sourceTree = "<group>"; };
+		976D57B527D93FEF00C0A1A0 /* YesterdayWeatherStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayWeatherStruct.swift; sourceTree = "<group>"; };
 		977DA5F027D50318005360D0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		97E23A0A27D37DB100F9451A /* weatherProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E23A0D27D37DB100F9451A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 				9758EFB527D755B700F3DF03 /* WeatherStruct.swift */,
 				9758EFAF27D72CAC00F3DF03 /* AddressStruct.swift */,
 				9768BAFB27D871810017D95D /* AirPollutionStruct.swift */,
+				976D57B527D93FEF00C0A1A0 /* YesterdayWeatherStruct.swift */,
 			);
 			path = StructModel;
 			sourceTree = "<group>";
@@ -75,6 +80,7 @@
 				970C00C427D67B9F00D1388F /* WeatherRequest.swift */,
 				9758EFB327D7325500F3DF03 /* AddressRequest.swift */,
 				9768BAF927D8710D0017D95D /* AirPollutionRequest.swift */,
+				976D57B327D93FD900C0A1A0 /* YesterdayWeatherRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -206,9 +212,11 @@
 				9758EFB027D72CAC00F3DF03 /* AddressStruct.swift in Sources */,
 				970C00C527D67B9F00D1388F /* WeatherRequest.swift in Sources */,
 				9768BAFA27D8710D0017D95D /* AirPollutionRequest.swift in Sources */,
+				976D57B627D93FEF00C0A1A0 /* YesterdayWeatherStruct.swift in Sources */,
 				9758EFB827D7D01700F3DF03 /* AirPollutionViewController.swift in Sources */,
 				9758EFB627D755B700F3DF03 /* WeatherStruct.swift in Sources */,
 				97E23A0E27D37DB100F9451A /* AppDelegate.swift in Sources */,
+				976D57B427D93FD900C0A1A0 /* YesterdayWeatherRequest.swift in Sources */,
 				9768BAFC27D871810017D95D /* AirPollutionStruct.swift in Sources */,
 				9758EFB427D7325500F3DF03 /* AddressRequest.swift in Sources */,
 				97E23A1027D37DB100F9451A /* SceneDelegate.swift in Sources */,
