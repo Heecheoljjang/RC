@@ -7,11 +7,13 @@
 
 import UIKit
 import Alamofire
+import Foundation
 
 class MainViewController: UIViewController{
     
     @IBOutlet weak var todayCollectionView: UICollectionView!
     @IBOutlet weak var bottomCollectionView: UICollectionView!
+    @IBOutlet weak var dailyTableView: UITableView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mainImg: UIImageView!
     @IBOutlet weak var todayWeatherLabel: UILabel!
@@ -20,6 +22,9 @@ class MainViewController: UIViewController{
     @IBOutlet weak var yesterdayLabel: UILabel!
     @IBOutlet weak var airPollutionImage: UIImageView!
     @IBOutlet weak var airPollutionLabel: UILabel!
+    @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var forecastLabel: UILabel!
     
     var tempLat: Double?
     var tempLong: Double?
@@ -30,9 +35,11 @@ class MainViewController: UIViewController{
     var tempYesterdayResponse: YesterdayResponse?
     
     var currentStatus: Int = 1
+    var isForecastBtnTapped: Bool = false
             
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         prepareAnimation()
 
@@ -49,7 +56,9 @@ class MainViewController: UIViewController{
         guard let weatherResponse = tempWeatherResponse else { return }
         guard let addressResponse = tempAddressResponse else { return }
         guard let yesterdayResponse = tempYesterdayResponse else { return }
-        guard let airPollitionResponse = tempAirPollutionResponse else { return }
+        //guard let airPollutionResponse = tempAirPollutionResponse else { return }
+        
+        //print("날씨정보: \(weatherResponse)")
         
         //현재온도 - 과거온도
         let yesterdayCompared = Int(round(weatherResponse.current.temp - 273.15)) - Int(round(yesterdayResponse.current.temp - 273.15))
@@ -66,6 +75,13 @@ class MainViewController: UIViewController{
             yesterdayLabel.text = "어제보다 \(abs(yesterdayCompared))° 높아요"
         }
         
+        //시간 계산
+        
+        let hourlyTime = weatherResponse.current.dt
+        let date = Date(timeIntervalSince1970: TimeInterval(hourlyTime))
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+            
         
         if weatherResponse.current.weather[0].id >= 200 && weatherResponse.current.weather[0].id <= 299 {
             mainImg.image = UIImage(systemName: "cloud.bolt.rain.fill")
@@ -81,20 +97,20 @@ class MainViewController: UIViewController{
             todayWeatherLabel.text = "안개"
         } else if weatherResponse.current.weather[0].id == 800 {
             //아직 해가 지지 않은 경우
-            if weatherResponse.current.dt <= weatherResponse.current.sunset {
-                mainImg.image = UIImage(systemName: "sun.max.fill")
+            if hour <= 6 || hour >= 19 {
+                mainImg.image = UIImage(systemName: "moon.fill")
                 todayWeatherLabel.text = "맑음"
             } else {
-                mainImg.image = UIImage(systemName: "moon.fill")
+                mainImg.image = UIImage(systemName: "sun.max.fill")
                 todayWeatherLabel.text = "맑음"
             }
         } else if weatherResponse.current.weather[0].id == 801 {
             //해가 지지 않은 경ㅇ
-            if weatherResponse.current.dt <= weatherResponse.current.sunset {
-                mainImg.image = UIImage(systemName: "cloud.sun.fill")
+            if hour <= 6 || hour >= 19 {
+                mainImg.image = UIImage(systemName: "cloud.moon.fill")
                 todayWeatherLabel.text = "대체로 맑음"
             } else {
-                mainImg.image = UIImage(systemName: "cloud.moon.fill")
+                mainImg.image = UIImage(systemName: "cloud.sun.fill")
                 todayWeatherLabel.text = "대체로 맑음"
             }
         } else {
@@ -102,19 +118,19 @@ class MainViewController: UIViewController{
             todayWeatherLabel.text = "흐림"
         }
         
-        if airPollitionResponse.list[0].main.aqi == 1 {
-            airPollutionLabel.text = "매우 좋음"
-            airPollutionImage.image = UIImage(systemName: "")
-            
-        } else if airPollitionResponse.list[0].main.aqi == 2 {
-            
-        } else if airPollitionResponse.list[0].main.aqi == 3 {
-            
-        } else if airPollitionResponse.list[0].main.aqi == 4 {
-            
-        } else {
-            
-        }
+//        if airPollitionResponse.list[0].main.aqi == 1 {
+//            airPollutionLabel.text = "매우 좋음"
+//            airPollutionImage.image = UIImage(systemName: "")
+//
+//        } else if airPollitionResponse.list[0].main.aqi == 2 {
+//
+//        } else if airPollitionResponse.list[0].main.aqi == 3 {
+//
+//        } else if airPollitionResponse.list[0].main.aqi == 4 {
+//
+//        } else {
+//
+//        }
         
         //today컬렉션뷰 리로드
         todayCollectionView.reloadData()
@@ -146,23 +162,101 @@ class MainViewController: UIViewController{
         
         present(vc, animated: true, completion: nil)
     }
+    @IBAction func tapForecast(_ sender: Any) {
+        
+        if isForecastBtnTapped == false {
+            scrollViewHeight.constant += 150
+            tableViewHeight.constant += 150
+            isForecastBtnTapped = true
+            forecastLabel.text = "8일 예보 닫기"
+        } else {
+            scrollViewHeight.constant -= 150
+            tableViewHeight.constant -= 150
+            isForecastBtnTapped = false
+            forecastLabel.text = "8일 예보 보기"
+
+        }
+        
+    }
 }
+// MARK: 테이블뷰
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 15
+        guard let weatherResponse = tempWeatherResponse else { return 0 }
+        
+        
+        return weatherResponse.daily.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainTableViewCell else { return UITableViewCell() }
         
+        guard let weatherResponse = tempWeatherResponse else { return UITableViewCell() }
+        
+        let dailyTime = weatherResponse.daily[indexPath.row].dt
+        let date = Date(timeIntervalSince1970: TimeInterval(dailyTime))
+        let calendar = Calendar.current
+        let weekday = calendar.component(.weekday, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        
+        if weekday == 1 {
+            cell.weekdayLabel.text = "일"
+        } else if weekday == 2 {
+            cell.weekdayLabel.text = "월"
+        } else if weekday == 3 {
+            cell.weekdayLabel.text = "화"
+        } else if weekday == 4 {
+            cell.weekdayLabel.text = "수"
+        } else if weekday == 5 {
+            cell.weekdayLabel.text = "목"
+        } else if weekday == 6 {
+            cell.weekdayLabel.text = "금"
+        } else {
+            cell.weekdayLabel.text = "토"
+        }
+        
+        if indexPath.row == 0 {
+            cell.dateLabel.text = "오늘"
+        } else if indexPath.row == 1 {
+            cell.dateLabel.text = "내일"
+        } else if indexPath.row == 2 {
+            cell.dateLabel.text = "모레"
+        } else {
+            cell.dateLabel.text = "\(month).\(day)"
+        }
+        
+        
+        
+        cell.tableViewMax.text = "\(Int(round(weatherResponse.daily[indexPath.row].temp.max - 273.15)))°"
+        cell.tableViewMin.text = "\(Int(round(weatherResponse.daily[indexPath.row].temp.min - 273.15)))°"
+        
+        if weatherResponse.daily[indexPath.row].weather[0].id >= 200 && weatherResponse.daily[indexPath.row].weather[0].id <= 299 {
+            cell.tableViewImg.image = UIImage(systemName: "cloud.bolt.rain.fill")
+        } else if weatherResponse.daily[indexPath.row].weather[0].id >= 300 && weatherResponse.daily[indexPath.row].weather[0].id <= 599 {
+            cell.tableViewImg.image = UIImage(systemName: "cloud.rain.fill")
+        } else if weatherResponse.daily[indexPath.row].weather[0].id >= 600 && weatherResponse.daily[indexPath.row].weather[0].id <= 699 {
+            cell.tableViewImg.image = UIImage(systemName: "snow")
+        } else if weatherResponse.daily[indexPath.row].weather[0].id >= 700 && weatherResponse.daily[indexPath.row].weather[0].id <= 799 {
+            cell.tableViewImg.image = UIImage(systemName: "cloud.fog.fill")
+        } else if weatherResponse.daily[indexPath.row].weather[0].id == 800 {
+            cell.tableViewImg.image = UIImage(systemName: "sun.max.fill")
+        } else if weatherResponse.daily[indexPath.row].weather[0].id == 801 {
+            cell.tableViewImg.image = UIImage(systemName: "cloud.sun.fill")
+        } else {
+            cell.tableViewImg.image = UIImage(systemName: "cloud.fill")
+        }
+    
         return cell
     }
 }
 
+
+// MARK: 콜렉션뷰
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -183,10 +277,35 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == todayCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "todayCell", for: indexPath) as? TodayCollectionViewCell else { return UICollectionViewCell() }
             
-            if let temp = tempWeatherResponse?.hourly[indexPath.row].temp {
-                cell.tempLabel.text = "\(Int(temp - 273.15))°"
+            if let hourlyTime = tempWeatherResponse?.hourly[indexPath.row].dt {
+                let date = Date(timeIntervalSince1970: TimeInterval(hourlyTime))
+                let calendar = Calendar.current
+                let hour = calendar.component(.hour, from: date)
+
+                //시간
+                if hour > 0 && hour <= 11 {
+                    cell.timeLabel.text = "오전 \(hour)시"
+                } else if hour == 12 {
+                    cell.timeLabel.text = "오후 \(hour)시"
+                } else if hour == 0 {
+                    cell.timeLabel.text = "오전 12시"
+                } else {
+                    cell.timeLabel.text = "오후 \(hour - 12)시"
+                }
+                
             }
-            if let weather = tempWeatherResponse?.hourly[indexPath.row].weather[0].id {
+            
+            // 현재 온도
+            if let temp = tempWeatherResponse?.hourly[indexPath.row].temp {
+                cell.tempLabel.text = "\(Int(round(temp - 273.15)))°"
+            }
+            // 이미지
+            if let weather = tempWeatherResponse?.hourly[indexPath.row].weather[0].id, let hourlyTime = tempWeatherResponse?.hourly[indexPath.row].dt {
+                
+                let date = Date(timeIntervalSince1970: TimeInterval(hourlyTime))
+                let calendar = Calendar.current
+                let hour = calendar.component(.hour, from: date)
+                
                 if weather >= 200 && weather <= 299 {
                     cell.todayImg.image = UIImage(systemName: "cloud.bolt.rain.fill")
                 } else if weather >= 300 && weather <= 599 {
@@ -196,17 +315,35 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 } else if weather >= 700 && weather <= 799 {
                     cell.todayImg.image = UIImage(systemName: "cloud.fog.fill")
                 } else if weather == 800 {
-                    cell.todayImg.image = UIImage(systemName: "sun.max.fill")
+                    // 저녁 7시부터 오전 6시까지 달 모양
+                    if hour <= 6 || hour >= 19 {
+                        cell.todayImg.image = UIImage(systemName: "moon.fill")
+                    } else { //오후
+                        cell.todayImg.image = UIImage(systemName: "sun.max.fill")
+                    }
                 } else if weather == 801 {
-                    cell.todayImg.image = UIImage(systemName: "cloud.sun.fill")
+                    // 저녁 7시부터 오전 6시까지 달 모양
+                    if hour <= 6 || hour >= 19 {
+                        cell.todayImg.image = UIImage(systemName: "cloud.moon.fill")
+                    } else { //오후
+                        cell.todayImg.image = UIImage(systemName: "cloud.sun.fill")
+                    }
                 } else {
                     cell.todayImg.image = UIImage(systemName: "cloud.fill")
                 }
             }
             
             return cell
+            
+            
+        //bottom 콜렉션 뷰
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bottomCell", for: indexPath) as? BottomCollectionViewCell else { return UICollectionViewCell() }
+                        
+            if indexPath.row == 1 {
+                collectionView.selectItem(at: indexPath, animated: false , scrollPosition: .init())
+                cell.isSelected = true
+            }
             
             cell.layer.cornerRadius = cell.frame.height / 2
             cell.layer.borderWidth = 1
@@ -234,6 +371,20 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return  cell
         }
         
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bottomCell", for: indexPath) as? BottomCollectionViewCell else { return }
+        guard let tableCell = dailyTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainTableViewCell else { return }
+
+        if indexPath.row == 3 {
+            mainImg.image = UIImage(systemName: "sun.max.fill")
+            tableCell.tableViewImg.image = UIImage(systemName: "sun.max.fill")
+            cell.backgroundColor = .red
+            dailyTableView.reloadData()
+        }
+
     }
     
 }
@@ -241,6 +392,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //테이블뷰 셀
 
 class MainTableViewCell: UITableViewCell {
+    @IBOutlet weak var tableViewImg: UIImageView!
+    @IBOutlet weak var tableViewMax: UILabel!
+    @IBOutlet weak var tableViewMin: UILabel!
+    @IBOutlet weak var weekdayLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
 }
 
@@ -257,4 +413,17 @@ class TodayCollectionViewCell: UICollectionViewCell {
 class BottomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
     
+    var currentStatus: Int = 1
+    
+    override var isSelected: Bool {
+      didSet {
+        if isSelected {
+            backgroundColor = UIColor(named: "nightColor")
+            label.textColor = .white
+        } else {
+            backgroundColor = UIColor.white
+            label.textColor = UIColor(named: "nightColor")
+        }
+      }
+    }
 }

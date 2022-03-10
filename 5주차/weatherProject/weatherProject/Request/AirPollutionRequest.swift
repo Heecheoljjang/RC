@@ -20,8 +20,7 @@ class AirPollutionRequest {
                 print("success: \(response)")
                 
                 //코드 작성
-                
-                
+
             case .failure(let error):
                 print("error: \(error)")
                 
