@@ -9,15 +9,21 @@ import UIKit
 
 class AirPollutionViewController: UIViewController {
     
-    var lat: Double?
-    var long: Double?
+    var tempAirPollutionData: AirPollutionResponse?
+    var tempLocation: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let myLat = lat else { return }
-        guard let myLong = long else { return }
         
-        //AirPollutionRequest().getAirPollutionData(lat: myLat, long: myLong, viewcontroller: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "dust" {
+            guard let vc = segue.destination as? ContainerViewController else { return }
+            
+            vc.tempLocation = tempLocation
+            vc.tempAirPollutionData = tempAirPollutionData
+        }
     }
 }

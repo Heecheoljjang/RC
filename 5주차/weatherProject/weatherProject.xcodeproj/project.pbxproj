@@ -26,6 +26,7 @@
 		97E23A1727D37DB200F9451A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E23A1627D37DB200F9451A /* Assets.xcassets */; };
 		97E23A1A27D37DB200F9451A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E23A1827D37DB200F9451A /* LaunchScreen.storyboard */; };
 		97E23A2327D387E800F9451A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 97E23A2227D387E800F9451A /* Alamofire */; };
+		97F84A4427DBB3D8001DBD71 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F84A4327DBB3D8001DBD71 /* ContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		97E23A1627D37DB200F9451A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97E23A1927D37DB200F9451A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97E23A1B27D37DB200F9451A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97F84A4327DBB3D8001DBD71 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				97E23A1127D37DB100F9451A /* LoginViewController.swift */,
 				977DA5F027D50318005360D0 /* MainViewController.swift */,
 				9758EFB727D7D01700F3DF03 /* AirPollutionViewController.swift */,
+				97F84A4327DBB3D8001DBD71 /* ContainerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			files = (
 				97E23A1227D37DB100F9451A /* LoginViewController.swift in Sources */,
 				9758EFB027D72CAC00F3DF03 /* AddressStruct.swift in Sources */,
+				97F84A4427DBB3D8001DBD71 /* ContainerViewController.swift in Sources */,
 				970C00C527D67B9F00D1388F /* WeatherRequest.swift in Sources */,
 				9768BAFA27D8710D0017D95D /* AirPollutionRequest.swift in Sources */,
 				976D57B627D93FEF00C0A1A0 /* YesterdayWeatherStruct.swift in Sources */,

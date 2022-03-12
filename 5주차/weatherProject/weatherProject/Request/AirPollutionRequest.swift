@@ -18,7 +18,7 @@ class AirPollutionRequest {
             switch response.result {
             case .success(let response):
                 print("success: \(response)")
-                
+                viewcontroller.tempAirPollutionResponse = response
                 //코드 작성
 
             case .failure(let error):

@@ -21,8 +21,9 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate{
     
     var tempWeatherResponse: WeatherResponse?
     var tempAddressResponse: AddressResponse?
-    var tempAirPollutionResponse: AirPollutionResponse?
     var tempYesterdayResponse: YesterdayResponse?
+    var tempAirPollutionResponse: AirPollutionResponse?
+
     
     
     override func viewDidLoad() {
