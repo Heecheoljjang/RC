@@ -52,6 +52,8 @@ class MainViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
                 
+        dismissIndicator()
+        
         dustView.layer.cornerRadius = 10
         yesterdayView.layer.cornerRadius = 10
         eightView.layer.cornerRadius = 10
@@ -59,6 +61,8 @@ class MainViewController: UIViewController{
         feelsLikeLabel.isHidden = true
         
         prepareAnimation()
+        
+        
 
     }
     
@@ -224,6 +228,9 @@ class MainViewController: UIViewController{
 
         }
         
+    }
+    @objc func dismissIndicator() {
+        IndicatorView.shared.dismiss()
     }
 }
 // MARK: 테이블뷰

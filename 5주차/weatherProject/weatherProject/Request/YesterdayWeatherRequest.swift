@@ -26,5 +26,6 @@ class YesterdayWeatherRequest {
                 print("error: \(error)")
             }
         }
+        
     }
 }

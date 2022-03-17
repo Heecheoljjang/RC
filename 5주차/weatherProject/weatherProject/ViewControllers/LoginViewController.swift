@@ -55,11 +55,22 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate{
         }
     }
 
+    func showIndicator() {
+        IndicatorView.shared.show()
+        IndicatorView.shared.showIndicator()
+    }
+    
+    @objc func dismissIndicator() {
+        IndicatorView.shared.dismiss()
+    }
 
+    
     @IBAction func tapKakao(_ sender: Any) {
         
         guard let lat = tempLat else { return }
         guard let long = tempLong else { return }
+                
+        showIndicator()
         
         WeatherRequest().getWeatherData(lat: lat, lon: long, viewController: self)
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		970C00C527D67B9F00D1388F /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970C00C427D67B9F00D1388F /* WeatherRequest.swift */; };
+		9740B0E227E3349600AEADF9 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740B0E127E3349600AEADF9 /* IndicatorView.swift */; };
 		9758EFB027D72CAC00F3DF03 /* AddressStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758EFAF27D72CAC00F3DF03 /* AddressStruct.swift */; };
 		9758EFB427D7325500F3DF03 /* AddressRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758EFB327D7325500F3DF03 /* AddressRequest.swift */; };
 		9758EFB627D755B700F3DF03 /* WeatherStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9758EFB527D755B700F3DF03 /* WeatherStruct.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		970C00C427D67B9F00D1388F /* WeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
+		9740B0E127E3349600AEADF9 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		9758EFAF27D72CAC00F3DF03 /* AddressStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressStruct.swift; sourceTree = "<group>"; };
 		9758EFB327D7325500F3DF03 /* AddressRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRequest.swift; sourceTree = "<group>"; };
 		9758EFB527D755B700F3DF03 /* WeatherStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStruct.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				97E23A0D27D37DB100F9451A /* AppDelegate.swift */,
 				97E23A0F27D37DB100F9451A /* SceneDelegate.swift */,
+				9740B0E127E3349600AEADF9 /* IndicatorView.swift */,
 				977DA5F227D50328005360D0 /* ViewControllers */,
 				9758EFB127D72CBE00F3DF03 /* StructModel */,
 				9758EFB227D72DBB00F3DF03 /* Request */,
@@ -215,6 +218,7 @@
 				9758EFB027D72CAC00F3DF03 /* AddressStruct.swift in Sources */,
 				97F84A4427DBB3D8001DBD71 /* ContainerViewController.swift in Sources */,
 				970C00C527D67B9F00D1388F /* WeatherRequest.swift in Sources */,
+				9740B0E227E3349600AEADF9 /* IndicatorView.swift in Sources */,
 				9768BAFA27D8710D0017D95D /* AirPollutionRequest.swift in Sources */,
 				976D57B627D93FEF00C0A1A0 /* YesterdayWeatherStruct.swift in Sources */,
 				9758EFB827D7D01700F3DF03 /* AirPollutionViewController.swift in Sources */,
@@ -301,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -356,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

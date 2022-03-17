@@ -17,7 +17,7 @@ class WeatherRequest {
             switch response.result {
             case .success(let response):
                 print("success: \(response)")
-
+                
                 //viewController.tempWeatherResponse = response
                 viewController.tempWeatherResponse = response
                 
@@ -26,4 +26,5 @@ class WeatherRequest {
             }
         }
     }
+
 }
